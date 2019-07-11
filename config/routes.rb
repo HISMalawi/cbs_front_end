@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'my_account/index'
+  get '/my_account', to: 'my_account#index'
   get '/settings', to: 'settings#index'
   get '/dashboard', to: 'dashboard#index'
   get 'users/index'

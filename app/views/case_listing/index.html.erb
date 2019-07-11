@@ -45,9 +45,9 @@
 														<span class="input-group-addon">
 															<i class="fa fa-calendar"></i>
 														</span>
-              <input type="text" class="form-control" name="start">
+              <input type="text" class="form-control" name="start" readonly="readonly">
               <span class="input-group-addon">to</span>
-              <input type="text" class="form-control" name="end">
+              <input type="text" class="form-control" name="end" readonly="readonly">
             </div>
           </div>
         </div>
@@ -86,7 +86,6 @@
 <%= javascript_include_tag 'octopus/select2' %>
 <%= javascript_include_tag 'octopus/jquery.dataTables' %>
 <%= javascript_include_tag 'octopus/datatables' %>
-<%= javascript_include_tag 'octopus/examples.datatables.ajax' %>
 
 <%= javascript_include_tag 'octopus/jquery-ui-1.10.4.custom' %>
 <%= javascript_include_tag 'octopus/jquery.ui.touch-punch' %>
@@ -110,3 +109,13 @@
 <%= javascript_include_tag 'octopus/summernote' %>
 <%= javascript_include_tag 'octopus/bootstrap-maxlength' %>
 <%= javascript_include_tag 'octopus/ios7-switch' %>
+
+<script>
+    $(document).ready( function () {
+        var $table = $('#datatable-ajax');
+        $table.dataTable({
+            bProcessing: true,
+            sAjaxSource: $table.data('url')
+        });
+    } );
+</script>
