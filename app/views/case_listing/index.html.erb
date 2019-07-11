@@ -31,7 +31,7 @@
         <div class="form-group col-lg-4" style="border: 0px;">
           <label class="col-md-3 control-label">District</label>
           <div class="col-md-6">
-            <select class="form-control" data-plugin-multiselect id="ms_example1">
+            <select class="form-control" data-plugin-multiselect id="district_id">
               <option value="1" selected>Lilongwe</option>
               <option value="2">Balaka</option>
               <option value="3">Mzuzu</option>
@@ -45,9 +45,9 @@
 														<span class="input-group-addon">
 															<i class="fa fa-calendar"></i>
 														</span>
-              <input type="text" class="form-control" name="start" readonly="readonly">
+              <input type="text" class="form-control" name="start" readonly="readonly" id="start_date">
               <span class="input-group-addon">to</span>
-              <input type="text" class="form-control" name="end" readonly="readonly">
+              <input type="text" class="form-control" name="end" readonly="readonly" id="end_date">
             </div>
           </div>
         </div>
@@ -118,4 +118,35 @@
             sAjaxSource: $table.data('url')
         });
     } );
+
+    // process the form
+    $('#filter-form').submit(function(event) {
+
+        // get the form data
+        var formData = {
+            'start_date' : $('start_date').val(),
+            'end_date' : $('end_date').val(),
+            'district_id' : $('district_id').val()
+        };
+
+        // process the form
+        $.ajax({
+            type        : 'POST',
+            url         : '/endpoint',
+            data        : formData, // our data object
+            dataType    : 'json', // what type of data do we expect back from the server
+            encode          : true
+        })
+        // using the done promise callback
+            .done(function(data) {
+
+                // log data to the console so we can see
+                console.log(data);
+
+                // here we will handle errors and validation messages
+            });
+
+        // stop the form from submitting the normal way and refreshing the page
+        event.preventDefault();
+    });
 </script>
