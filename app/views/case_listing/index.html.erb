@@ -8,7 +8,7 @@
     <h2 class="panel-title">Case Listing</h2>
   </header>
   <div class="panel-body">
-    <table class="table table-bordered table-striped" id="datatable-ajax" data-url="assets/ajax/ajax-datatables-sample.json">
+    <table class="table table-bordered table-striped" id="datatable-ajax" data-url="assets/javascripts/ajax-datatables-sample.json">
       <thead>
         <tr>
           <th>Surveillance ID</th>
@@ -30,3 +30,8 @@
     </table>
   </div>
 </section>
+
+<%= javascript_include_tag 'octopus/select2' %>
+<%= javascript_include_tag 'octopus/jquery.dataTables' %>
+<%= javascript_include_tag 'octopus/datatables' %>
+<%= javascript_include_tag 'octopus/examples.datatables.ajax' %>
