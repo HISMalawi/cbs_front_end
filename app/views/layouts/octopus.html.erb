@@ -33,6 +33,15 @@
   <!-- Head Libs -->
   <%= javascript_include_tag 'octopus/modernizr' %>
 
+  <style>
+   .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+  </style>
 </head>
 <body>
 <section class="body">
@@ -385,11 +394,11 @@
     </section>
 
     <!-- Footer -->
-    <footer class="page-footer font-small blue pt-4">
+    <footer class="page-footer font-small blue pt-4 footer">
 
       <!-- Copyright -->
-      <div class="footer-copyright text-center py-3">© 2019 Copyright:
-        <a href="https://mdbootstrap.com/education/bootstrap/"> baobabhealth.org</a>
+      <div class="footer-copyright text-center py-3">©<%= Date.today.year %> Copyright:
+        <a href="http://baobabhealth.org" target='_blank'> baobabhealth.org</a>
       </div>
       <!-- Copyright -->
 
