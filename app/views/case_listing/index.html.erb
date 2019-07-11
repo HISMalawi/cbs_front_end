@@ -27,28 +27,28 @@
   <!-- Filter section -->
   <div class="panel-body">
     <form class="form-horizontal form-bordered">
-      <div class="form-group">
-        <label class="col-md-3 control-label">District</label>
-        <div class="col-md-6">
-          <select class="form-control" multiple="multiple" data-plugin-multiselect data-plugin-options='{ "enableCaseInsensitiveFiltering": true }' id="ms_example6">
-            <optgroup label="Districts">
-              <option value="1">Lilongwe</option>
-              <option value="2">Mzuzu</option>
-              <option value="3">Blantyre</option>
-            </optgroup>
-          </select>
+      <div class="row">
+        <div class="form-group col-lg-6">
+          <label class="col-md-3 control-label">District</label>
+          <div class="col-md-6">
+            <select class="form-control" data-plugin-multiselect id="ms_example1">
+              <option value="1" selected>Lilongwe</option>
+              <option value="2">Balaka</option>
+              <option value="3">Mzuzu</option>
+            </select>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label class="col-md-3 control-label">Date range</label>
-        <div class="col-md-6">
-          <div class="input-daterange input-group" data-plugin-datepicker>
+        <div class="form-group col-lg-6">
+          <label class="col-md-3 control-label">Date range</label>
+          <div class="col-md-6">
+            <div class="input-daterange input-group" data-plugin-datepicker>
 														<span class="input-group-addon">
 															<i class="fa fa-calendar"></i>
 														</span>
-            <input type="text" class="form-control" name="start">
-            <span class="input-group-addon">to</span>
-            <input type="text" class="form-control" name="end">
+              <input type="text" class="form-control" name="start">
+              <span class="input-group-addon">to</span>
+              <input type="text" class="form-control" name="end">
+            </div>
           </div>
         </div>
       </div>
@@ -59,20 +59,20 @@
   <div class="panel-body">
     <table class="table table-bordered table-striped" id="datatable-ajax" data-url="<%= asset_path 'ajax-datatables-sample.json' %>">
       <thead>
-        <tr>
-          <th>Surveillance ID</th>
-          <th> Gender</th>
-          <th> Date of Birth</th>
-          <th> HIV Test Date</th>
-          <th> HIV Test Facility</th>
-          <th> ART Initiation Date</th>
-          <th> ART Regimen</th>
-          <th> ART Facility</th>
-          <th> Latest Viral Load Result</th>
-          <th> Latest Viral Date</th>
-          <th> Latest Viral Load Facility</th>
-          <th> Record Details</th>
-        </tr>
+      <tr>
+        <th>Surveillance ID</th>
+        <th> Gender</th>
+        <th> Date of Birth</th>
+        <th> HIV Test Date</th>
+        <th> HIV Test Facility</th>
+        <th> ART Initiation Date</th>
+        <th> ART Regimen</th>
+        <th> ART Facility</th>
+        <th> Latest Viral Load Result</th>
+        <th> Latest Viral Date</th>
+        <th> Latest Viral Load Facility</th>
+        <th> Record Details</th>
+      </tr>
       </thead>
       <tbody>
       </tbody>
