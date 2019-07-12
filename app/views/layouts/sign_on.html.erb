@@ -1,0 +1,75 @@
+<!doctype html>
+<html class="fixed">
+<head>
+
+  <!-- Basic -->
+  <meta charset="UTF-8">
+
+  <meta name="keywords" content="HTML5 Admin Template" />
+  <meta name="description" content="Porto Admin - Responsive HTML5 Template">
+  <meta name="author" content="okler.net">
+
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <!-- Web Fonts  -->
+  <%= stylesheet_link_tag 'octopus/google-web-fonts', rel: 'stylesheets', type: 'text/css' %>
+  <!-- Vendor CSS -->
+  <%= stylesheet_link_tag 'octopus/bootstrap', rel: 'stylesheet' %>
+  <%= stylesheet_link_tag 'octopus/font-awesome', rel: 'stylesheet' %>
+  <%= stylesheet_link_tag 'octopus/magnific-popup', rel: 'stylesheet' %>
+  <%= stylesheet_link_tag 'octopus/datepicker3' %>
+
+  <!-- Theme CSS -->
+  <%= stylesheet_link_tag 'octopus/theme', rel: 'stylesheet' %>
+
+  <!-- Skin CSS -->
+  <%= stylesheet_link_tag 'octopus/default', rel: 'stylesheet' %>
+
+  <!-- Theme Custom CSS -->
+  <%= stylesheet_link_tag 'octopus/theme-custom', rel: 'stylesheet' %>
+
+  <!-- Head Libs -->
+  <%= javascript_include_tag 'octopus/modernizr' %>
+
+</head>
+<body>
+<!-- start: page -->
+<section class="body-sign">
+  <div class="center-sign">
+    <a href="/" class="logo pull-left">
+      <%= image_tag 'logo.jpeg', height: '54', alt: 'Coat of Arms Logo' %>
+    </a>
+
+    <div class="panel panel-sign">
+      <%= yield %>
+    </div>
+
+    <p class="text-center text-muted mt-md mb-md">
+      ©<%= Date.today.year %> Copyright:
+      <a href="http://baobabhealth.org" target='_blank'> baobabhealth.org</a>
+    </p>
+  </div>
+</section>
+<!-- end: page -->
+
+<!-- Vendor -->
+<%= javascript_include_tag 'octopus/jquery' %>
+<%= javascript_include_tag 'octopus/jquery.browser.mobile' %>
+<%= javascript_include_tag 'octopus/bootstrap' %>
+<%= javascript_include_tag 'octopus/nanoscroller' %>
+<%= javascript_include_tag 'octopus/bootstrap-datepicker' %>
+<%= javascript_include_tag 'octopus/magnific-popup' %>
+<%= javascript_include_tag 'octopus/jquery.placeholder' %>
+
+<!-- Theme Base, Components and Settings -->
+<%= javascript_include_tag 'octopus/theme' %>
+
+<!-- Theme Custom -->
+<%= javascript_include_tag 'octopus/theme.custom' %>
+
+<!-- Theme Initialization Files -->
+<%= javascript_include_tag 'octopus/theme.init' %>
+
+</body>
+</html>

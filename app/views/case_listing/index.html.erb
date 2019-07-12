@@ -65,7 +65,7 @@
       <tr>
         <th>Surveillance ID</th>
         <th> Gender</th>
-        <th> Date of Birth</th>
+        <th> Month of Birth</th>
         <th> HIV Test Date</th>
         <th> HIV Test Facility</th>
         <th> ART Initiation Date</th>
@@ -124,18 +124,18 @@
 
         // get the form data
         var formData = {
-            'start_date' : $('start_date').val(),
-            'end_date' : $('end_date').val(),
-            'district_id' : $('district_id').val()
+            'start_date' : $('#start_date').val(),
+            'end_date' : $('#end_date').val(),
+            'district_id' : $('#district_id').val()
         };
 
         // process the form
         $.ajax({
             type        : 'POST',
             url         : '/endpoint',
-            data        : formData, // our data object
-            dataType    : 'json', // what type of data do we expect back from the server
-            encode          : true
+            data        : formData,
+            dataType    : 'json', // datatype to expect from server
+            encode       : true
         })
         // using the done promise callback
             .done(function(data) {
