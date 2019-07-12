@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get '/sign_in', to: 'users#sign_in'
+  get '/sign_up', to: 'users#sign_up'
+  get '/password_recovery', to: 'users#password_recovery'
   get '/my_account', to: 'my_account#index'
   get '/settings', to: 'settings#index'
   get '/dashboard', to: 'dashboard#index'
