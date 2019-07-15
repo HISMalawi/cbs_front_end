@@ -23,6 +23,6 @@ class UsersController < ApplicationController
   end
 
   def sign_out
-
+    redirect_to '/sign_in'
   end
 end
