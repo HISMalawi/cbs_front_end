@@ -1,18 +1,8 @@
 class CaseListingController < ApplicationController
   def index
     if request.post?
-      start_param = params[:start_date].split('/')
-      start_day = start_param[1]
-      start_month = start_param[0]
-      start_year = start_param[2]
-
-      end_param = params[:end_date].split('/')
-      end_day = end_param[1]
-      end_month = end_param[0]
-      end_year = end_param[2]
-
-      start_date = "#{start_day}/#{start_month}/#{start_year}"
-      end_date = "#{end_day}/#{end_month}/#{end_year}"
+      start_date = format_passed_date(params[:start_date])
+      end_date = format_passed_date(params[:end_date])
 
       payload = {
           start_date: start_date.to_date,

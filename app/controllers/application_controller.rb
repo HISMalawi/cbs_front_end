@@ -23,6 +23,15 @@ class ApplicationController < ActionController::Base
     return response
   end
 
+  def format_passed_date(date_value)
+    start_param = date_value.split('/')
+    day = start_param[1]
+    month = start_param[0]
+    year = start_param[2]
+
+    "#{day}/#{month}/#{year}"
+  end
+
   private
   def check_auth_token
     if session[:authentication_token].blank?

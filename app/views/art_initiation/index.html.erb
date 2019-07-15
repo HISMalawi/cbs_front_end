@@ -389,13 +389,6 @@
     let $tableLeft = $('#art_init_table_left');
     let $tableRight = $('#art_init_table_right');
 
-    let dtTableLeft, dtTableRight;
-
-    $(document).ready( function () {
-        dtTableLeft = $table.dataTable();
-        dtTableRight = $table.dataTable();
-    } );
-
     // process the form
     $('#filter-form-date').submit(function(event) {
 
@@ -416,13 +409,7 @@
         })
         // using the done promise callback
             .done(function(data) {
-                console.log('Successful ' + data);
-                // dtTable.fnClearTable();
-                // dtTable.fnDestroy();
-                // $table.dataTable({
-                //     bProcessing: true,
-                //     data: data
-                // });
+                console.log(data);
             });
 
         event.preventDefault();
