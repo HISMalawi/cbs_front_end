@@ -22,6 +22,7 @@ class UsersController < ApplicationController
       response = JSON.parse(response)
 
       if response.include? 'auth_token'
+        session[:username] = response['username']
         session[:authentication_token] = response['auth_token']
         render json: { token: session[:authentication_token]}
       end
