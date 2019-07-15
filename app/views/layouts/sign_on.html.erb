@@ -9,6 +9,9 @@
   <meta name="description" content="Porto Admin - Responsive HTML5 Template">
   <meta name="author" content="okler.net">
 
+  <!-- CSRF MetaTag -->
+  <%= csrf_meta_tag %>
+
   <!-- Mobile Metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
@@ -34,6 +37,24 @@
 
 </head>
 <body>
+<!-- Vendor -->
+<%= javascript_include_tag 'octopus/jquery' %>
+<%= javascript_include_tag 'octopus/jquery-ui-1.10.4.custom' %>
+<%= javascript_include_tag 'octopus/jquery.browser.mobile' %>
+<%= javascript_include_tag 'octopus/bootstrap' %>
+<%= javascript_include_tag 'octopus/nanoscroller' %>
+<%= javascript_include_tag 'octopus/bootstrap-datepicker' %>
+<%= javascript_include_tag 'octopus/magnific-popup' %>
+<%= javascript_include_tag 'octopus/jquery.placeholder' %>
+
+<!-- Theme Base, Components and Settings -->
+<%= javascript_include_tag 'octopus/theme' %>
+
+<!-- Theme Custom -->
+<%= javascript_include_tag 'octopus/theme.custom' %>
+
+<!-- Theme Initialization Files -->
+<%= javascript_include_tag 'octopus/theme.init' %>
 <!-- start: page -->
 <section class="body-sign">
   <div class="center-sign">
@@ -53,24 +74,6 @@
   </div>
 </section>
 <!-- end: page -->
-
-<!-- Vendor -->
-<%= javascript_include_tag 'octopus/jquery' %>
-<%= javascript_include_tag 'octopus/jquery.browser.mobile' %>
-<%= javascript_include_tag 'octopus/bootstrap' %>
-<%= javascript_include_tag 'octopus/nanoscroller' %>
-<%= javascript_include_tag 'octopus/bootstrap-datepicker' %>
-<%= javascript_include_tag 'octopus/magnific-popup' %>
-<%= javascript_include_tag 'octopus/jquery.placeholder' %>
-
-<!-- Theme Base, Components and Settings -->
-<%= javascript_include_tag 'octopus/theme' %>
-
-<!-- Theme Custom -->
-<%= javascript_include_tag 'octopus/theme.custom' %>
-
-<!-- Theme Initialization Files -->
-<%= javascript_include_tag 'octopus/theme.init' %>
 
 </body>
 </html>

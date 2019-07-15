@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/sign_in', to: 'users#sign_in'
+  match '/sign_in', to: 'users#sign_in', via: [:get, :post]
   get '/sign_up', to: 'users#sign_up'
   get '/sign_out', to: 'users#sign_out'
   get '/password_recovery', to: 'users#password_recovery'
@@ -7,13 +7,12 @@ Rails.application.routes.draw do
   get '/settings', to: 'settings#index'
   get '/dashboard', to: 'dashboard#index'
   get 'users/index'
-  get '/add_user', to: 'users#new'
+  match '/add_user', to: 'users#new', via: [:get, :post]
   get '/view_users', to: 'users#show'
-  get '/art_initiation', to: 'art_initiation#index'
-  get '/case_listing', to: 'case_listing#index'
-  post '/case_listing', to: 'case_listing#index'
-  get '/', to: 'users#sign_in'
+  match '/art_initiation', to: 'art_initiation#index', via: [:get, :post]
+  match '/case_listing', to: 'case_listing#index', via: [:get, :post]
+  get '/', to: 'dashboard#index'
 
-  root 'users#sign_in'
+  root 'dashboard#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

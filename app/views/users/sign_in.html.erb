@@ -2,11 +2,11 @@
   <h2 class="title text-uppercase text-bold m-none"><i class="fa fa-user mr-xs"></i> Sign In</h2>
 </div>
 <div class="panel-body">
-  <form method="get" action="/dashboard">
+  <form id="sign_in">
     <div class="form-group mb-lg">
       <label>Username</label>
       <div class="input-group input-group-icon">
-        <input name="username" type="text" class="form-control input-lg" />
+        <input id="username" type="text" class="form-control input-lg" />
         <span class="input-group-addon">
 										<span class="icon icon-lg">
 											<i class="fa fa-user"></i>
@@ -21,7 +21,7 @@
         <a href="/password_recovery" class="pull-right">Lost Password?</a>
       </div>
       <div class="input-group input-group-icon">
-        <input name="pwd" type="password" class="form-control input-lg" />
+        <input id="password" type="password" class="form-control input-lg" />
         <span class="input-group-addon">
 										<span class="icon icon-lg">
 											<i class="fa fa-lock"></i>
@@ -47,3 +47,33 @@
 
   </form>
 </div>
+
+<script>
+    // process the form
+    $('#sign_in').submit(function(event) {
+
+        let formData = {
+            'username' : $('#username').val(),
+            'password' : $('#password').val()
+        };
+
+        $.ajax({
+            type        : 'POST',
+            url         : '/sign_in',
+            headers : {
+                'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+            },
+            data        : formData,
+            dataType    : 'json',
+            encode       : true
+        })
+        // using the done promise callback
+            .done(function(data) {
+                if (data.token.length > 0) {
+                    document.location = '/';
+                }
+            });
+
+        event.preventDefault();
+    });
+</script>
