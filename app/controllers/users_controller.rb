@@ -11,7 +11,26 @@ class UsersController < ApplicationController
   end
 
   def sign_in
-    render layout: 'sign_on'
+    if request.post?
+      payload = {
+          username: params['username'],
+          password: params['password']
+      }
+
+      url = '/authenticate'
+
+      response = post_params(url,payload)
+
+      response = JSON.parse(response)
+
+      if response.include? 'auth_token'
+        session[:username] = response['username']
+        session[:authentication_token] = response['auth_token']
+        render json: { token: session[:authentication_token]}
+      end
+    else
+      render layout: 'sign_on'
+    end
   end
 
   def sign_up
@@ -23,6 +42,7 @@ class UsersController < ApplicationController
   end
 
   def sign_out
+    session.clear
     redirect_to '/sign_in'
   end
 end
