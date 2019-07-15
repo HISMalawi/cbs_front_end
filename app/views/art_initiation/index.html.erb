@@ -1,246 +1,164 @@
-<%= stylesheet_link_tag 'octopus/select2', rel: 'stylesheet' %>
-<%= stylesheet_link_tag 'octopus/datatables' %>
-<%= stylesheet_link_tag 'octopus/morris', rel: 'stylesheet'%>
-<%= stylesheet_link_tag 'octopus/bootstrap-multiselect', rel: 'stylesheet'%>
-<%= stylesheet_link_tag 'octopus/jquery-ui-1.10.4.custom', rel: 'stylesheet'%>
+<%= stylesheet_link_tag 'octopus/morris', rel: 'stylesheet' %>
 
-<section class="panel">
-  <header class="panel-heading">
-    <h2 class="panel-title">ART Initiation</h2>
-  </header>
-      <!-- Left content -->
-	<div class="panel-body">
-    <form class="form-horizontal form-bordered">
-      <div class="row" style="text-align: right">
-        <div class="form-group col-lg-3" style="border: 0px;">
-          <label class="col-md-3 control-label">District</label>
-          <div class="col-md-6">
-            <select class="form-control" data-plugin-multiselect id="ms_example1">
-              <option value="1" selected>Lilongwe</option>
-              <option value="2">Balaka</option>
-              <option value="3">Mzuzu</option>
-            </select>
-          </div>
+<!-- Filter section -->
+<div class="panel-body" style="text-align: right;">
+  <form class="form-horizontal form-bordered" id="filter-form">
+    <div class="row">
+      <div class="form-group col-lg-4" style="border: 0px;">
+        <label class="col-md-3 control-label">District</label>
+        <div class="col-md-6">
+          <select class="form-control" data-plugin-multiselect id="district_id">
+            <option value="1" selected>Lilongwe</option>
+            <option value="2">Balaka</option>
+            <option value="3">Mzuzu</option>
+          </select>
         </div>
-        <div class="form-group col-lg-6">
-          <label class="col-md-2 control-label">Date range</label>
-          <div class="col-md-6">
-            <div class="input-daterange input-group" data-plugin-datepicker>
+      </div>
+      <div class="form-group col-lg-6" style="border: 0px;">
+        <label class="col-md-3 control-label">Date range</label>
+        <div class="col-md-6">
+          <div class="input-daterange input-group" data-plugin-datepicker>
 														<span class="input-group-addon">
 															<i class="fa fa-calendar"></i>
 														</span>
-              <input type="text" class="form-control" name="start">
-              <span class="input-group-addon">to</span>
-              <input type="text" class="form-control" name="end">
-            </div>
+            <input type="text" class="form-control" name="start" readonly="readonly" id="start_date">
+            <span class="input-group-addon">to</span>
+            <input type="text" class="form-control" name="end" readonly="readonly" id="end_date">
           </div>
-        </div>
-        <div class="form-group col-lg-3">
-          <button type="submit" class="btn btn-primary">Filter</button>
         </div>
       </div>
-    </form>
-  	</div>
-        <!-- left content -->
-        <!--tab nav start-->
-        <header class="panel-heading tab-bg-primary ">
-            <ul class="nav nav-tabs">
-              <li class="active">
-                <a data-toggle="tab" href="#graphical">Graphical</a>
+      <div class="form-group col-lg-2">
+        <button type="submit" class="btn btn-primary">Filter</button>
+      </div>
+    </div>
+  </form>
+  <!-- Start charts section -->
+  <div class="row">
+    <!-- Left chart -->
+    <div class="col-lg-6">
+      <section class="panel">
+        <div class="panel-body">
 
-              </li>
-              <li class="">
-                <a data-toggle="tab" href="#tabular">Tabular</a>
-              </li>
-            </ul>
-          </header>
-          <div class="panel-body">
-            <div class="tab-content">
-              <div id="graphical" class="tab-pane active text-center">
-           		<div class="row">
-							<div class="col-md-12">
-								<section class="panel">
-									<header class="panel-heading">
-										<div class="panel-actions">
-											<a href="#" class="fa fa-caret-down"></a>
-											<a href="#" class="fa fa-times"></a>
-										</div>
-						
-										<h2 class="panel-title">Stacked Chart</h2>
-										<p class="panel-subtitle">Stacked Bar Chart.</p>
-									</header>
-									<div class="panel-body">
-						
-										<!-- Morris: Area -->
-										<div class="chart chart-md" id="morrisStacked"></div>
-										<script type="text/javascript">
-						
-											var morrisStackedData = [{
-												y: '2004',
-												a: 10,
-												b: 30
-											}, {
-												y: '2005',
-												a: 100,
-												b: 25
-											}, {
-												y: '2006',
-												a: 60,
-												b: 25
-											}, {
-												y: '2007',
-												a: 75,
-												b: 35
-											}, {
-												y: '2008',
-												a: 90,
-												b: 20
-											}, {
-												y: '2009',
-												a: 75,
-												b: 15
-											}, {
-												y: '2010',
-												a: 50,
-												b: 10
-											}, {
-												y: '2011',
-												a: 75,
-												b: 25
-											}, {
-												y: '2012',
-												a: 30,
-												b: 10
-											}, {
-												y: '2013',
-												a: 75,
-												b: 5
-											}, {
-												y: '2014',
-												a: 60,
-												b: 8
-											}];
-						
-											// See: assets/javascripts/ui-elements/examples.charts.js for more settings.
-						
-										</script>
-						
-									</div>
-								</section>
-							</div>
-				</div>
-              </div>
-              <div id="tabular" class="tab-pane">
-                 <table class="table table-hover">
-                  <thead>
-                  <tr>
-                    <th>&nbsp;</th>
-                    <th><1</th>
-                    <th>1-9</th>
-                    <th>10-14F</th>
-                    <th>10-14M</th>
-                    <th>15-19F</th>
-                    <th>15-19M</th>
-                    <th>20-24F</th>
-                    <th>20-24M</th>
-                    <th>25-49F</th>
-                    <th>25-49M</th>
-                    <th>50+ F</th>
-                    <th>50+ M</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td>HTS Pos with ART init</td>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                  </tr>
-                  <tr>
-                    <td>HTS Pos w/out ART init</td>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                  </tr>
-                  <tr>
-                    <td>Started ART/Total</td>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </section>
-    </form>
+          <!-- Morris: Area -->
+          <div class="chart chart-md" id="morrisStacked"></div>
+          <script type="text/javascript">
+
+              var morrisStackedData = [{
+                  y: '2004',
+                  a: 10,
+                  b: 30
+              }, {
+                  y: '2005',
+                  a: 100,
+                  b: 25
+              }, {
+                  y: '2006',
+                  a: 60,
+                  b: 25
+              }, {
+                  y: '2007',
+                  a: 75,
+                  b: 35
+              }, {
+                  y: '2008',
+                  a: 90,
+                  b: 20
+              }, {
+                  y: '2009',
+                  a: 75,
+                  b: 15
+              }, {
+                  y: '2010',
+                  a: 50,
+                  b: 10
+              }, {
+                  y: '2011',
+                  a: 75,
+                  b: 25
+              }, {
+                  y: '2012',
+                  a: 30,
+                  b: 10
+              }, {
+                  y: '2013',
+                  a: 75,
+                  b: 5
+              }, {
+                  y: '2014',
+                  a: 60,
+                  b: 8
+              }];
+          </script>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- Right chart -->
+    <div class="col-lg-6">
+      <section class="panel">
+        <div class="panel-body">
+
+          <!-- Morris: Area -->
+          <div class="chart chart-md" id="morrisStacked2"></div>
+          <script type="text/javascript">
+
+              var morrisStackedData = [{
+                  y: '2004',
+                  a: 10,
+                  b: 30
+              }, {
+                  y: '2005',
+                  a: 100,
+                  b: 25
+              }, {
+                  y: '2006',
+                  a: 60,
+                  b: 25
+              }, {
+                  y: '2007',
+                  a: 75,
+                  b: 35
+              }, {
+                  y: '2008',
+                  a: 90,
+                  b: 20
+              }, {
+                  y: '2009',
+                  a: 75,
+                  b: 15
+              }, {
+                  y: '2010',
+                  a: 50,
+                  b: 10
+              }, {
+                  y: '2011',
+                  a: 75,
+                  b: 25
+              }, {
+                  y: '2012',
+                  a: 30,
+                  b: 10
+              }, {
+                  y: '2013',
+                  a: 75,
+                  b: 5
+              }, {
+                  y: '2014',
+                  a: 60,
+                  b: 8
+              }];
+          </script>
+
+        </div>
+      </section>
+    </div>
   </div>
-  <!-- end filter -->
-</section>
+</div>
+<!-- end filter -->
 
-<%= javascript_include_tag 'octopus/select2' %>
-<%= javascript_include_tag 'octopus/jquery.dataTables' %>
-<%= javascript_include_tag 'octopus/datatables' %>
-<%= javascript_include_tag 'octopus/examples.datatables.ajax' %>
-<%= javascript_include_tag 'octopus/morris' %>
-<%= javascript_include_tag 'octopus/morris.min' %>
-<%= javascript_include_tag 'octopus/charts' %>
-<%= javascript_include_tag 'octopus/jquery-ui-1.10.4.custom' %>
-<%= javascript_include_tag 'octopus/jquery.ui.touch-punch' %>
-<%= javascript_include_tag 'octopus/bootstrap-multiselect' %>
-<%= javascript_include_tag 'octopus/jquery.maskedinput' %>
-<%= javascript_include_tag 'octopus/bootstrap-tagsinput' %>
-<%= javascript_include_tag 'octopus/bootstrap-colorpicker' %>
-<%= javascript_include_tag 'octopus/bootstrap-timepicker' %>
-<%= javascript_include_tag 'octopus/spinner' %>
-<%= javascript_include_tag 'octopus/dropzone' %>
-<%= javascript_include_tag 'octopus/markdown' %>
-<%= javascript_include_tag 'octopus/to-markdown' %>
-<%= javascript_include_tag 'octopus/bootstrap-markdown' %>
-<%= javascript_include_tag 'octopus/codemirror' %>
-<%= javascript_include_tag 'octopus/active-line' %>
-<%= javascript_include_tag 'octopus/matchbrackets' %>
-<%= javascript_include_tag 'octopus/javascript' %>
-<%= javascript_include_tag 'octopus/xml' %>
-<%= javascript_include_tag 'octopus/htmlmixed' %>
-<%= javascript_include_tag 'octopus/css' %>
-<%= javascript_include_tag 'octopus/summernote' %>
-<%= javascript_include_tag 'octopus/bootstrap-maxlength' %>
-<%= javascript_include_tag 'octopus/ios7-switch' %>
-<%= javascript_include_tag 'octopus/jquery.ui.touch-punch' %>
+<!-- Specific Page Vendor -->
 <%= javascript_include_tag 'octopus/jquery.appear' %>
-<%= javascript_include_tag 'octopus/bootstrap-multiselect' %>
-<%= javascript_include_tag 'octopus/jquery.flot' %>
-<%= javascript_include_tag 'octopus/jquery.flot.tooltip' %>
-<%= javascript_include_tag 'octopus/jquery.flot.categories' %>
-<%= javascript_include_tag 'octopus/jquery.flot.resize' %>
-<%= javascript_include_tag 'octopus/jquery.sparkline' %>
-
+<%= javascript_include_tag 'octopus/raphael' %>
+<%= javascript_include_tag 'octopus/morris' %>
+<%= javascript_include_tag 'octopus/examples.charts' %>
