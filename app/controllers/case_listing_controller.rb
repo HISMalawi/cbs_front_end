@@ -21,7 +21,7 @@ class CaseListingController < ApplicationController
 
       url = '/reports/case_listing'
 
-      response = post_params(url, payload)
+      response = post_params(url, payload, 'get')
 
       data = []
 

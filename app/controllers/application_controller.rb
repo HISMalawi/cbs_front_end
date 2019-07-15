@@ -23,10 +23,6 @@ class ApplicationController < ActionController::Base
     return response
   end
 
-  def get_params(url,params)
-
-  end
-
   private
   def check_auth_token
     if session[:authentication_token].blank?
