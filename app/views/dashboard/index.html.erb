@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag 'octopus/morris', rel: 'stylesheet' %>
+
 <style>
   #mw-map{
     display: block;
@@ -950,7 +952,7 @@
   </div>
   <div class="col-md-8 col-lg-8 col-xl-8">
     <div class="row">
-      <div class="col-md-12 col-lg-6 col-xl-6">
+      <div class="col-md-12 col-lg-4 col-xl-4">
         <section class="panel panel-featured-left panel-featured-quartenary">
           <div class="panel-body">
             <div class="widget-summary">
@@ -967,14 +969,14 @@
                   </div>
                 </div>
                 <div class="summary-footer">
-                  <a href="/case_listing" class="text-muted text-uppercase">(view case listing)</a>
+                  <a class="text-muted text-uppercase">(overview)</a>
                 </div>
               </div>
             </div>
           </div>
         </section>
       </div>
-      <div class="col-md-12 col-lg-6 col-xl-6">
+      <div class="col-md-12 col-lg-4 col-xl-4">
         <section class="panel panel-featured-left panel-featured-primary">
           <div class="panel-body">
             <div class="widget-summary">
@@ -991,14 +993,14 @@
                   </div>
                 </div>
                 <div class="summary-footer">
-                  <p class="text-muted text-uppercase">(overview)</p>
+                  <a class="text-muted text-uppercase">(overview)</a>
                 </div>
               </div>
             </div>
           </div>
         </section>
       </div>
-      <div class="col-md-12 col-lg-6 col-xl-6">
+      <div class="col-md-12 col-lg-4 col-xl-4">
         <section class="panel panel-featured-left panel-featured-tertiary">
           <div class="panel-body">
             <div class="widget-summary">
@@ -1015,31 +1017,7 @@
                   </div>
                 </div>
                 <div class="summary-footer">
-                  <a href="/art_initiation" class="text-muted text-uppercase">(view art initiation)</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-      <div class="col-md-12 col-lg-6 col-xl-6">
-        <section class="panel panel-featured-left panel-featured-dark">
-          <div class="panel-body">
-            <div class="widget-summary">
-              <div class="widget-summary-col widget-summary-col-icon">
-                <div class="summary-icon bg-dark">
-                  <i class="fa fa-bar-chart-o"></i>
-                </div>
-              </div>
-              <div class="widget-summary-col">
-                <div class="summary">
-                  <h4 class="title">OPD Registered</h4>
-                  <div class="info">
-                    <strong class="amount">3765</strong>
-                  </div>
-                </div>
-                <div class="summary-footer">
-                  <a href="/art_initiation" class="text-muted text-uppercase">(view art initiation)</a>
+                  <a class="text-muted text-uppercase">(overview)</a>
                 </div>
               </div>
             </div>
@@ -1047,9 +1025,70 @@
         </section>
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-12">
+        <section class="panel">
+          <header class="panel-heading">
+            <p class="panel-title">Total Registered </p>
+            <p class="panel-subtitle">Based on Programs (Last 5 years)</p>
+          </header>
+          <div class="panel-body">
+
+            <!-- Morris: Area -->
+            <div class="chart chart-lg" id="morrisArea"></div>
+            <script type="text/javascript">
+                var morrisAreaData = [{
+                    y: '2013',
+                    a: 10,
+                    b: 30,
+                    c: 98
+                }, {
+                    y: '2015',
+                    a: 100,
+                    b: 25,
+                    c: 65
+                }, {
+                    y: '2016',
+                    a: 60,
+                    b: 25,
+                    c: 100
+                }, {
+                    y: '2017',
+                    a: 75,
+                    b: 35,
+                    c: 45
+                }, {
+                    y: '2018',
+                    a: 60,
+                    b: 8,
+                    c: 89
+                }];
+
+                // See: assets/javascripts/ui-elements/examples.charts.js for more settings.
+
+            </script>
+
+          </div>
+          <div class="panel-footer">
+            Legend:
+            <span class="summary-icon bg-quartenary">
+            <i class="fa fa-sort-numeric-asc"></i>
+            </span> HTS, <span class="summary-icon bg-primary">
+            <i class="fa fa-sort-numeric-asc"></i>
+            </span> ANC, <span class="summary-icon bg-info">
+            <i class="fa fa-sort-numeric-asc"></i>
+            </span> ART,
+          </div>
+        </section>
+      </div>
+    </div>
   </div>
 </div>
 <!-- End Page -->
+
+<%= javascript_include_tag 'octopus/raphael' %>
+<%= javascript_include_tag 'octopus/morris' %>
+<%= javascript_include_tag 'octopus/dashboard.charts' %>
 
 <script>
     $("path, circle").hover(function(e) {
