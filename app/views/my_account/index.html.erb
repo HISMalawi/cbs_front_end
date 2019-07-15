@@ -1,2 +1,220 @@
-<h1>MyAccount#index</h1>
-<p>Find me in app/views/my_account/index.html.erb</p>
+<!doctype html>
+<html class="fixed">
+<head>
+
+  <!-- Basic -->
+  <meta charset="UTF-8">
+
+  <meta name="keywords" content="HTML5 Admin Template" />
+  <meta name="description" content="Porto Admin - Responsive HTML5 Template">
+  <meta name="author" content="okler.net">
+
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <!-- Web Fonts  -->
+  <%= stylesheet_link_tag 'octopus/google-web-fonts', rel: 'stylesheets', type: 'text/css' %>
+  <!-- Vendor CSS -->
+  <%= stylesheet_link_tag 'octopus/bootstrap', rel: 'stylesheet' %>
+  <%= stylesheet_link_tag 'octopus/font-awesome', rel: 'stylesheet' %>
+  <%= stylesheet_link_tag 'octopus/magnific-popup', rel: 'stylesheet' %>
+  <!-- Theme CSS -->
+  <%= stylesheet_link_tag 'octopus/theme', rel: 'stylesheet' %>
+
+  <!-- Skin CSS -->
+  <%= stylesheet_link_tag 'octopus/default', rel: 'stylesheet' %>
+
+  <!-- Theme Custom CSS -->
+  <%= stylesheet_link_tag 'octopus/theme-custom', rel: 'stylesheet' %>
+
+  <!-- Head Libs -->
+  <%= javascript_include_tag 'octopus/modernizr' %>
+
+</head>
+
+					<div class="row">
+						<div class="col-md-4 col-lg-3">
+
+							<section class="panel">
+								<div class="panel-body">
+									<div class="thumb-info mb-md">
+										<%= image_tag '!logged-user.jpg', class: 'rounded img-responsive', alt: 'user image' %>
+										<div class="thumb-info-title">
+											<span class="thumb-info-inner">Honourable</span>
+											<span class="thumb-info-type">Data Manager</span>
+										</div>
+									</div>
+
+									<div class="widget-toggle-expand mb-md">
+										<div class="widget-header">
+											<h6>Profile Completion</h6>
+											<div class="widget-toggle">+</div>
+										</div>
+										<div class="widget-content-collapsed">
+											<div class="progress progress-xs light">
+												<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+													60%
+												</div>
+											</div>
+										</div>
+										<div class="widget-content-expanded">
+											<ul class="simple-todo-list">
+												<li class="completed">Update Profile Picture</li>
+												<li class="completed">Change Personal Information</li>
+											</ul>
+										</div>
+									</div>
+
+									<hr class="dotted short">
+
+									<h6 class="text-muted">About</h6>
+									<p>A passionate Data Manager with interest in data visualizations</p>
+								</div>
+							</section>
+						</div>
+						<div class="col-md-8 col-lg-6">
+							
+							<div class="tabs">
+								<ul class="nav nav-tabs nav-justified">
+									<li class="active">
+										<a href="#overview" data-toggle="tab">Overview</a>
+									</li>
+									<li>
+										<a href="#edit" data-toggle="tab">Edit</a>
+									</li>
+								</ul>
+								<div class="tab-content">
+									<div id="overview" class="tab-pane active">
+										<table class="table table-bordered table-striped" id="datatable-ajax" data-url="<%= asset_path 'ajax-datatables-sample.json' %>">
+	        			              <tbody>
+							              <tr>
+							                <td>Username</td>
+							                <th>Honourable</th>
+							               </tr>
+							              <tr>
+							                <td>First Name</td>
+							                <th>James</th>
+							               </tr>
+							              <tr>
+							                <td>Last Name</td>
+							                <th>Banda</th>
+							              </tr>
+							               <td>E-Mail</td>
+							                <th>honourable@gmail.com</th>
+							               </tr>
+							              <tr>
+							                <td>Role</td>
+							                <th>Data Manager</th>
+							               </tr>
+							              <tr>
+							                <td>Created At</td>
+							                <th>12/11/2019</th>
+							              </tr>
+							               <tr>
+							                <td>Updated At</td>
+							                <th>12/11/2019</th>
+							              </tr>
+							              </tbody>
+							            </table>
+									</div>
+
+								<div id="edit" class="tab-pane">
+
+										<form class="form-horizontal" method="get">
+											<h4 class="mb-xlg">Personal Information</h4>
+											<fieldset>
+												<div class="form-group">
+													<label class="col-md-3 control-label" for="profileFirstName">First Name</label>
+													<div class="col-md-8">
+														<input type="text" class="form-control" id="profileFirstName">
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-md-3 control-label" for="profileLastName">Last Name</label>
+													<div class="col-md-8">
+														<input type="text" class="form-control" id="profileLastName">
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-md-3 control-label" for="profileEmail">E-Mail</label>
+													<div class="col-md-8">
+														<input type="text" class="form-control" id="profileEmail">
+													</div>
+												</div>
+											</fieldset>
+											<hr class="dotted tall">
+											<h4 class="mb-xlg">Change Password</h4>
+											<fieldset class="mb-xl">
+												<div class="form-group">
+													<label class="col-md-3 control-label" for="profileNewPassword">New Password</label>
+													<div class="col-md-8">
+														<input type="text" class="form-control" id="profileNewPassword">
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-md-3 control-label" for="profileNewPasswordRepeat">Repeat New Password</label>
+													<div class="col-md-8">
+														<input type="text" class="form-control" id="profileNewPasswordRepeat">
+													</div>
+												</div>
+											</fieldset>
+											<div class="panel-footer">
+												<div class="row">
+													<div class="col-md-9 col-md-offset-3">
+														<button type="submit" class="btn btn-primary">Edit</button>
+														<button type="reset" class="btn btn-default">Reset</button>
+													</div>
+												</div>
+											</div>
+
+										</form>
+
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 col-lg-3">
+
+							<h4 class="mb-md">Records Stats</h4>
+							<ul class="simple-card-list mb-xlg">
+								<li class="primary">
+									<h4>HTS	:	58</h4>
+								</li>
+								<li class="primary">
+									<h4>ANC :	78</h4>
+								</li>
+								<li class="primary">
+									<h4>ART  :	26</h4>
+								</li>
+							</ul>
+
+							<h4 class="mb-md">Programs</h4>
+							<ul class="simple-bullet-list mb-xlg">
+								<li class="red">
+									<span class="title">ANC</span>
+									<span class="description truncate">You have access to this program</span>
+								</li>
+								<li class="green">
+									<span class="title">HTS</span>
+								<span class="description truncate">You have access to this program</span>
+								</li>
+								<li class="blue">
+									<span class="title">ART</span>
+									<span class="description truncate">You have access to this program</span>
+								</li>
+							</ul>
+						</div>
+
+					</div>
+
+<!-- Theme Base, Components and Settings -->
+<%= javascript_include_tag 'octopus/theme' %>
+
+<!-- Theme Custom -->
+<%= javascript_include_tag 'octopus/theme.custom' %>
+
+<!-- Theme Initialization Files -->
+<%= javascript_include_tag 'octopus/theme.init' %>
+
+</body>
+</html>
