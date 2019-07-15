@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/view_users', to: 'users#show'
   get '/art_initiation', to: 'art_initiation#index'
   get '/case_listing', to: 'case_listing#index'
+  post '/case_listing', to: 'case_listing#index'
   get '/', to: 'users#sign_in'
 
   root 'users#sign_in'

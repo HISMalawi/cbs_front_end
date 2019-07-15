@@ -25,6 +25,11 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# require restclient
+gem 'rest-client'
+
+# Cross Origin Support gem
+gem 'rack-cors'
 
 gem 'passenger'
 

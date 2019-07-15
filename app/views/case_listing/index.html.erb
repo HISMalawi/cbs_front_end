@@ -106,42 +106,43 @@
 <%= javascript_include_tag 'octopus/ios7-switch' %>
 
 <script>
+    let $table = $('#datatable-ajax');
     $(document).ready( function () {
-        var $table = $('#datatable-ajax');
-        $table.dataTable({
-            bProcessing: true,
-            sAjaxSource: $table.data('url')
-        });
+        // let $table = $('#datatable-ajax');
+
+        // $table.dataTable({
+        //     bProcessing: true,
+        //     sAjaxSource: $table.data('url')
+        // });
     } );
 
     // process the form
     $('#filter-form').submit(function(event) {
 
-        // get the form data
-        var formData = {
-            'start_date' : $('#start_date').val(),
-            'end_date' : $('#end_date').val(),
-            'district_id' : $('#district_id').val()
+        let formData = {
+            'start_date' : '1900-01-01',
+            'end_date' : '2019-01-01'
         };
 
-        // process the form
         $.ajax({
             type        : 'POST',
-            url         : '/endpoint',
+            url         : '/case_listing',
+            headers : {
+                'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+            },
             data        : formData,
-            dataType    : 'json', // datatype to expect from server
+            dataType    : 'json',
             encode       : true
         })
         // using the done promise callback
             .done(function(data) {
-
-                // log data to the console so we can see
-                console.log(data);
-
-                // here we will handle errors and validation messages
+                $table.dataTable({
+                    bProcessing: true,
+                    data: data
+                });
             });
 
-        // stop the form from submitting the normal way and refreshing the page
         event.preventDefault();
     });
+
 </script>
