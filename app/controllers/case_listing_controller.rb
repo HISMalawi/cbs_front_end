@@ -35,8 +35,19 @@ class CaseListingController < ApplicationController
       (JSON.parse(response) || []).each do |sn, resp|
         birth_month = resp['birthdate'].to_date.strftime("%m-%Y")
 
-        data << [resp['surveillance'], resp['gender'], birth_month, resp['hiv_test_date'], resp['hiv_test_facility'],
-                 resp['initiation_date'], '', '', '', resp['date_enrolled'], '', '']
+        data << [
+            resp['surveillance'],
+            resp['gender'],
+            birth_month,
+            resp['hiv_test_date'],
+            resp['hiv_test_facility'],
+            resp['initiation_date'],
+            '',
+            '',
+            resp['latest_vl_result'],
+            resp['latest_vl_date'],
+            resp['latest_vl_facility']
+        ]
       end
 
       render json: data

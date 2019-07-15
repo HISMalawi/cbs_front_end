@@ -9,16 +9,6 @@
   <div class="panel-body" style="text-align: right;">
     <form class="form-horizontal form-bordered" id="filter-form">
       <div class="row">
-        <div class="form-group col-lg-4" style="border: 0px;">
-          <label class="col-md-3 control-label">District</label>
-          <div class="col-md-6">
-            <select class="form-control" data-plugin-multiselect id="district_id">
-              <option value="1" selected>Lilongwe</option>
-              <option value="2">Balaka</option>
-              <option value="3">Mzuzu</option>
-            </select>
-          </div>
-        </div>
         <div class="form-group col-lg-6" style="border: 0px;">
           <label class="col-md-3 control-label">Date range</label>
           <div class="col-md-6">
@@ -37,299 +27,358 @@
         </div>
       </div>
     </form>
-    <!-- Start charts section -->
-    <div class="row">
-      <!-- Left chart -->
-      <div class="col-lg-6">
-        <div class="tabs">
-          <ul class="nav nav-tabs nav-justified">
-            <li class="active">
-              <a href="#popular10" data-toggle="tab" class="text-center"><i class="fa fa-bar-chart-o"></i> Graphical</a>
-            </li>
-            <li>
-              <a href="#recent10" data-toggle="tab" class="text-center"><i class="fa fa-table"></i> Tabular</a>
-            </li>
-          </ul>
-          <div class="tab-content">
-            <div id="popular10" class="tab-pane active">
-              <section class="panel">
-                <div class="panel-body">
 
-                  <!-- Morris: Area -->
-                  <div class="chart chart-md" id="morrisStacked"></div>
-                  <script type="text/javascript">
+  </div>
+</section>
+<!-- end filter -->
 
-                      var morrisStackedData = [{
-                          y: '2004',
-                          a: 10,
-                          b: 30
-                      }, {
-                          y: '2005',
-                          a: 100,
-                          b: 25
-                      }, {
-                          y: '2006',
-                          a: 60,
-                          b: 25
-                      }, {
-                          y: '2007',
-                          a: 75,
-                          b: 35
-                      }, {
-                          y: '2008',
-                          a: 90,
-                          b: 20
-                      }, {
-                          y: '2009',
-                          a: 75,
-                          b: 15
-                      }, {
-                          y: '2010',
-                          a: 50,
-                          b: 10
-                      }, {
-                          y: '2011',
-                          a: 75,
-                          b: 25
-                      }, {
-                          y: '2012',
-                          a: 30,
-                          b: 10
-                      }, {
-                          y: '2013',
-                          a: 75,
-                          b: 5
-                      }, {
-                          y: '2014',
-                          a: 60,
-                          b: 8
-                      }];
-                  </script>
-
-                </div>
-              </section>
+<!-- Start charts section -->
+<div class="row">
+  <!-- Left chart -->
+  <div class="col-lg-6">
+    <div class="panel">
+      <div class="panel-body">
+        <form class="form-horizontal form-bordered" id="filter-form">
+          <div class="row">
+            <div class="form-group col-lg-6" style="border: 0px;">
+              <label class="col-md-3 control-label">District</label>
+              <div class="col-md-6">
+                <select class="form-control" data-plugin-multiselect id="district_id">
+                  <option value="1" selected>Lilongwe</option>
+                  <option value="2">Balaka</option>
+                  <option value="3">Mzuzu</option>
+                </select>
+              </div>
             </div>
-            <div id="recent10" class="tab-pane">
-              <div class="panel-body">
-                <table class="table table-bordered table-striped" id="datatable-ajax" data-url="<%= asset_path 'ajax-datatables-sample.json' %>">
-                  <thead>
-                  <tr>
-                    <th>&nbsp;</th>
-                    <th><1</th>
-                    <th>1-9</th>
-                    <th>10-14F</th>
-                    <th>10-14M</th>
-                    <th>15-19F</th>
-                    <th>15-19M</th>
-                    <th>20-24F</th>
-                    <th>20-24M</th>
-                    <th>25-49F</th>
-                    <th>25-49M</th>
-                    <th>50+ F</th>
-                    <th>50+ M</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td>HTS Pos with ART init</td>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                  </tr>
-                  <tr>
-                    <td>HTS Pos w/out ART init</td>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                  </tr>
-                  <tr>
-                    <td>Started ART/Total</td>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                  </tr>
-                  </tbody>
-                </table>
+            <div class="form-group col-lg-6" style="border: 0px;">
+              <label class="col-md-3 control-label">Site</label>
+              <div class="col-md-6">
+                <select class="form-control" data-plugin-multiselect id="district_id">
+                  <option value="1" selected>MPC</option>
+                  <option value="2">Lighthouse</option>
+                  <option value="3">Kawale</option>
+                </select>
               </div>
             </div>
           </div>
-        </div>
+        </form>
       </div>
+    </div>
+    <div class="tabs">
+      <ul class="nav nav-tabs nav-justified">
+        <li class="active">
+          <a href="#popular10" data-toggle="tab" class="text-center"><i class="fa fa-bar-chart-o"></i> Graphical</a>
+        </li>
+        <li>
+          <a href="#recent10" data-toggle="tab" class="text-center"><i class="fa fa-table"></i> Tabular</a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div id="popular10" class="tab-pane active">
+          <section class="panel">
+            <div class="panel-body">
 
-      <!-- Right chart -->
-      <div class="col-lg-6">
-        <div class="tabs">
-          <ul class="nav nav-tabs nav-justified">
-            <li class="active">
-              <a href="#popular20" data-toggle="tab" class="text-center"><i class="fa fa-bar-chart-o"></i> Graphical</a>
-            </li>
-            <li>
-              <a href="#recent20" data-toggle="tab" class="text-center"><i class="fa fa-table"></i> Tabular</a>
-            </li>
-          </ul>
-          <div class="tab-content">
-            <div id="popular20" class="tab-pane active">
-              <section class="panel">
-                <div class="panel-body">
+              <!-- Morris: Area -->
+              <div class="chart chart-md" id="morrisStacked"></div>
+              <script type="text/javascript">
 
-                  <!-- Morris: Area -->
-                  <div class="chart chart-md" id="morrisStacked2"></div>
-                  <script type="text/javascript">
+                  var morrisStackedData = [{
+                      y: '2004',
+                      a: 10,
+                      b: 30
+                  }, {
+                      y: '2005',
+                      a: 100,
+                      b: 25
+                  }, {
+                      y: '2006',
+                      a: 60,
+                      b: 25
+                  }, {
+                      y: '2007',
+                      a: 75,
+                      b: 35
+                  }, {
+                      y: '2008',
+                      a: 90,
+                      b: 20
+                  }, {
+                      y: '2009',
+                      a: 75,
+                      b: 15
+                  }, {
+                      y: '2010',
+                      a: 50,
+                      b: 10
+                  }, {
+                      y: '2011',
+                      a: 75,
+                      b: 25
+                  }, {
+                      y: '2012',
+                      a: 30,
+                      b: 10
+                  }, {
+                      y: '2013',
+                      a: 75,
+                      b: 5
+                  }, {
+                      y: '2014',
+                      a: 60,
+                      b: 8
+                  }];
+              </script>
 
-                      var morrisStackedData = [{
-                          y: '2004',
-                          a: 10,
-                          b: 30
-                      }, {
-                          y: '2005',
-                          a: 100,
-                          b: 25
-                      }, {
-                          y: '2006',
-                          a: 60,
-                          b: 25
-                      }, {
-                          y: '2007',
-                          a: 75,
-                          b: 35
-                      }, {
-                          y: '2008',
-                          a: 90,
-                          b: 20
-                      }, {
-                          y: '2009',
-                          a: 75,
-                          b: 15
-                      }, {
-                          y: '2010',
-                          a: 50,
-                          b: 10
-                      }, {
-                          y: '2011',
-                          a: 75,
-                          b: 25
-                      }, {
-                          y: '2012',
-                          a: 30,
-                          b: 10
-                      }, {
-                          y: '2013',
-                          a: 75,
-                          b: 5
-                      }, {
-                          y: '2014',
-                          a: 60,
-                          b: 8
-                      }];
-                  </script>
-
-                </div>
-              </section>
             </div>
-            <div id="recent20" class="tab-pane">
-              <div class="panel-body">
-                <table class="table table-bordered table-striped" id="datatable-ajax" data-url="<%= asset_path 'ajax-datatables-sample.json' %>">
-                  <thead>
-                  <tr>
-                    <th>&nbsp;</th>
-                    <th><1</th>
-                    <th>1-9</th>
-                    <th>10-14F</th>
-                    <th>10-14M</th>
-                    <th>15-19F</th>
-                    <th>15-19M</th>
-                    <th>20-24F</th>
-                    <th>20-24M</th>
-                    <th>25-49F</th>
-                    <th>25-49M</th>
-                    <th>50+ F</th>
-                    <th>50+ M</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td>HTS Pos with ART init</td>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                  </tr>
-                  <tr>
-                    <td>HTS Pos w/out ART init</td>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                  </tr>
-                  <tr>
-                    <td>Started ART/Total</td>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                    <th>&nbsp;</th>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+          </section>
+        </div>
+        <div id="recent10" class="tab-pane">
+          <div class="panel-body">
+            <table class="table table-bordered table-striped" id="datatable-ajax" data-url="<%= asset_path 'ajax-datatables-sample.json' %>">
+              <thead>
+              <tr>
+                <th>&nbsp;</th>
+                <th><1</th>
+                <th>1-9</th>
+                <th>10-14F</th>
+                <th>10-14M</th>
+                <th>15-19F</th>
+                <th>15-19M</th>
+                <th>20-24F</th>
+                <th>20-24M</th>
+                <th>25-49F</th>
+                <th>25-49M</th>
+                <th>50+ F</th>
+                <th>50+ M</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>HTS Pos with ART init</td>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+              </tr>
+              <tr>
+                <td>HTS Pos w/out ART init</td>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+              </tr>
+              <tr>
+                <td>Started ART/Total</td>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+              </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </div>
   </div>
-</section>
-<!-- end filter -->
+
+  <!-- Right chart -->
+  <div class="col-lg-6">
+    <div class="panel">
+      <div class="panel-body">
+        <form class="form-horizontal form-bordered" id="filter-form">
+          <div class="row">
+            <div class="form-group col-lg-6" style="border: 0px;">
+              <label class="col-md-3 control-label">District</label>
+              <div class="col-md-6">
+                <select class="form-control" data-plugin-multiselect id="district_id">
+                  <option value="1" selected>Lilongwe</option>
+                  <option value="2">Balaka</option>
+                  <option value="3">Mzuzu</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group col-lg-6" style="border: 0px;">
+              <label class="col-md-3 control-label">Site</label>
+              <div class="col-md-6">
+                <select class="form-control" data-plugin-multiselect id="district_id">
+                  <option value="1" selected>MPC</option>
+                  <option value="2">Lighthouse</option>
+                  <option value="3">Kawale</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="tabs">
+      <ul class="nav nav-tabs nav-justified">
+        <li class="active">
+          <a href="#popular20" data-toggle="tab" class="text-center"><i class="fa fa-bar-chart-o"></i> Graphical</a>
+        </li>
+        <li>
+          <a href="#recent20" data-toggle="tab" class="text-center"><i class="fa fa-table"></i> Tabular</a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div id="popular20" class="tab-pane active">
+          <section class="panel">
+            <div class="panel-body">
+
+              <!-- Morris: Area -->
+              <div class="chart chart-md" id="morrisStacked2"></div>
+              <script type="text/javascript">
+
+                  var morrisStackedData = [{
+                      y: '2004',
+                      a: 10,
+                      b: 30
+                  }, {
+                      y: '2005',
+                      a: 100,
+                      b: 25
+                  }, {
+                      y: '2006',
+                      a: 60,
+                      b: 25
+                  }, {
+                      y: '2007',
+                      a: 75,
+                      b: 35
+                  }, {
+                      y: '2008',
+                      a: 90,
+                      b: 20
+                  }, {
+                      y: '2009',
+                      a: 75,
+                      b: 15
+                  }, {
+                      y: '2010',
+                      a: 50,
+                      b: 10
+                  }, {
+                      y: '2011',
+                      a: 75,
+                      b: 25
+                  }, {
+                      y: '2012',
+                      a: 30,
+                      b: 10
+                  }, {
+                      y: '2013',
+                      a: 75,
+                      b: 5
+                  }, {
+                      y: '2014',
+                      a: 60,
+                      b: 8
+                  }];
+              </script>
+
+            </div>
+          </section>
+        </div>
+        <div id="recent20" class="tab-pane">
+          <div class="panel-body">
+            <table class="table table-bordered table-striped" id="datatable-ajax" data-url="<%= asset_path 'ajax-datatables-sample.json' %>">
+              <thead>
+              <tr>
+                <th>&nbsp;</th>
+                <th><1</th>
+                <th>1-9</th>
+                <th>10-14F</th>
+                <th>10-14M</th>
+                <th>15-19F</th>
+                <th>15-19M</th>
+                <th>20-24F</th>
+                <th>20-24M</th>
+                <th>25-49F</th>
+                <th>25-49M</th>
+                <th>50+ F</th>
+                <th>50+ M</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>HTS Pos with ART init</td>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+              </tr>
+              <tr>
+                <td>HTS Pos w/out ART init</td>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+              </tr>
+              <tr>
+                <td>Started ART/Total</td>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Specific Page Vendor -->
 <%= javascript_include_tag 'octopus/jquery.appear' %>
 <%= javascript_include_tag 'octopus/raphael' %>
