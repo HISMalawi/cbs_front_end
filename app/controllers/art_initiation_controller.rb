@@ -1,5 +1,9 @@
 class ArtInitiationController < ApplicationController
   def index
-    render layout: 'octopus'
+    if request.post?
+
+    else
+      render layout: 'octopus'
+    end
   end
 end

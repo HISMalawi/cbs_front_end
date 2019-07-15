@@ -22,3 +22,28 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+# Ruby Version
+
+    ruby 2.6.1
+    rails 5.2.3
+
+# Configuration
+
+Simply run
+
+    bundle
+    
+Then run the application preferrably with passenger
+
+    passenger start [-p portNumber]
+
+# Database Creation
+
+Not needed. Do not do anything to do with the database.
+
+No database yml file available
+
+# Database Initialization
+
+Not needed

@@ -7,7 +7,7 @@
     <p class="panel-subtitle">art</p>
   </header>
   <div class="panel-body" style="text-align: right;">
-    <form class="form-horizontal form-bordered" id="filter-form">
+    <form class="form-horizontal form-bordered" id="filter-form-date">
       <div class="row">
         <div class="form-group col-lg-6" style="border: 0px;">
           <label class="col-md-3 control-label">Date range</label>
@@ -38,12 +38,12 @@
   <div class="col-lg-6">
     <div class="panel">
       <div class="panel-body">
-        <form class="form-horizontal form-bordered" id="filter-form">
+        <form class="form-horizontal form-bordered" id="filter-form-left">
           <div class="row">
             <div class="form-group col-lg-6" style="border: 0px;">
               <label class="col-md-3 control-label">District</label>
               <div class="col-md-6">
-                <select class="form-control" data-plugin-multiselect id="district_id">
+                <select class="form-control" data-plugin-multiselect id="district_id_left">
                   <option value="1" selected>Lilongwe</option>
                   <option value="2">Balaka</option>
                   <option value="3">Mzuzu</option>
@@ -53,7 +53,7 @@
             <div class="form-group col-lg-6" style="border: 0px;">
               <label class="col-md-3 control-label">Site</label>
               <div class="col-md-6">
-                <select class="form-control" data-plugin-multiselect id="district_id">
+                <select class="form-control" data-plugin-multiselect id="site_id_left">
                   <option value="1" selected>MPC</option>
                   <option value="2">Lighthouse</option>
                   <option value="3">Kawale</option>
@@ -134,7 +134,7 @@
         </div>
         <div id="recent10" class="tab-pane">
           <div class="panel-body">
-            <table class="table table-bordered table-striped" id="datatable-ajax" data-url="<%= asset_path 'ajax-datatables-sample.json' %>">
+            <table class="table table-bordered table-striped" id="art_init_table_left">
               <thead>
               <tr>
                 <th>&nbsp;</th>
@@ -210,7 +210,7 @@
   <div class="col-lg-6">
     <div class="panel">
       <div class="panel-body">
-        <form class="form-horizontal form-bordered" id="filter-form">
+        <form class="form-horizontal form-bordered" id="filter-form-right">
           <div class="row">
             <div class="form-group col-lg-6" style="border: 0px;">
               <label class="col-md-3 control-label">District</label>
@@ -306,7 +306,7 @@
         </div>
         <div id="recent20" class="tab-pane">
           <div class="panel-body">
-            <table class="table table-bordered table-striped" id="datatable-ajax" data-url="<%= asset_path 'ajax-datatables-sample.json' %>">
+            <table class="table table-bordered table-striped" id="art_init_table_right">
               <thead>
               <tr>
                 <th>&nbsp;</th>
@@ -384,3 +384,47 @@
 <%= javascript_include_tag 'octopus/raphael' %>
 <%= javascript_include_tag 'octopus/morris' %>
 <%= javascript_include_tag 'octopus/examples.charts' %>
+
+<script>
+    let $tableLeft = $('#art_init_table_left');
+    let $tableRight = $('#art_init_table_right');
+
+    let dtTableLeft, dtTableRight;
+
+    $(document).ready( function () {
+        dtTableLeft = $table.dataTable();
+        dtTableRight = $table.dataTable();
+    } );
+
+    // process the form
+    $('#filter-form-date').submit(function(event) {
+
+        let formData = {
+            'start_date' : $('#start_date').val(),
+            'end_date' : $('#end_date').val()
+        };
+
+        $.ajax({
+            type        : 'POST',
+            url         : '/art_initiation',
+            headers : {
+                'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+            },
+            data        : formData,
+            dataType    : 'json',
+            encode       : true
+        })
+        // using the done promise callback
+            .done(function(data) {
+                console.log('Successful ' + data);
+                // dtTable.fnClearTable();
+                // dtTable.fnDestroy();
+                // $table.dataTable({
+                //     bProcessing: true,
+                //     data: data
+                // });
+            });
+
+        event.preventDefault();
+    });
+</script>
