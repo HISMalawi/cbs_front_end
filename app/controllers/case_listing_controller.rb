@@ -30,16 +30,6 @@ class CaseListingController < ApplicationController
           payload: form_data
       )
 
-      # age_at_initiation: 54
-      # : "1950-06-15"
-      # : "2004-10-01"
-      # : "F"
-      # : "2004-07-01"
-      # : "Malenga"
-      # : "2004-10-01"
-      # : "GOaYce"
-      # who_stage: 9712
-
       data = []
 
       (JSON.parse(response) || []).each do |sn, resp|
