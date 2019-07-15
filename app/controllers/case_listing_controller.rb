@@ -14,21 +14,14 @@ class CaseListingController < ApplicationController
       start_date = "#{start_day}/#{start_month}/#{start_year}"
       end_date = "#{end_day}/#{end_month}/#{end_year}"
 
-      form_data = {
+      payload = {
           start_date: start_date.to_date,
           end_date: end_date.to_date
       }
 
-      response = RestClient::Request.execute(
-          method: :post,
-          url: 'http://localhost:3001/api/v1/reports/case_listing',
-          headers: {
-              ContentType: 'json',
-              Authorization: 'Bearer ' + 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1NjMyNjA5MzF9.rVNdf1N5pgL3OhJdfFfwygFztj4VHZE2qfk-cCQpdoU'
-          },
-          content_type: "application/json",
-          payload: form_data
-      )
+      url = '/reports/case_listing'
+
+      response = post_params(url, payload)
 
       data = []
 

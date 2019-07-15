@@ -1,0 +1,4 @@
+# ids api settings
+ids_api:
+  protocol: 'http'
+  url: 'localhost:3001/api/v1'

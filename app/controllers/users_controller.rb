@@ -17,7 +17,9 @@ class UsersController < ApplicationController
           password: params['password']
       }
 
-      response = post_params('http://localhost:3001/authenticate',payload)
+      url = '/authenticate'
+
+      response = post_params(url,payload)
 
       response = JSON.parse(response)
 
