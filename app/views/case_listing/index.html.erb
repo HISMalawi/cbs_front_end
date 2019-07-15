@@ -120,8 +120,8 @@
     $('#filter-form').submit(function(event) {
 
         let formData = {
-            'start_date' : '1900-01-01',
-            'end_date' : '2019-01-01'
+            'start_date' : $('#start_date').val(),// '1900-01-01',
+            'end_date' : $('#end_date').val()// '2019-01-01'
         };
 
         $.ajax({
