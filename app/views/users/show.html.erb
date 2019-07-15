@@ -1,2 +1,26 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<%= stylesheet_link_tag 'octopus/datatables' %>
+<section class="panel">
+  <header class="panel-heading">
+    <h2 class="panel-title">System Users</h2>
+  </header>
+  <div class="panel-body">
+    <table class="table table-bordered table-striped" id="datatable-ajax" >
+      <thead>
+      <tr>
+        <th>User Name</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>E-Mail</th>
+        <th>Role</th>
+         <th>Status</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+</section>
+<%= javascript_include_tag 'octopus/datatables' %>
+
+
