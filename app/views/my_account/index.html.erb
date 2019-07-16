@@ -42,8 +42,12 @@
 									<div class="thumb-info mb-md">
 										<%= image_tag '!logged-user.jpg', class: 'rounded img-responsive', alt: 'user image' %>
 										<div class="thumb-info-title">
-											<span class="thumb-info-inner">Honourable</span>
-											<span class="thumb-info-type">Data Manager</span>
+											<span class="thumb-info-inner">
+                        <%= session[:username] %>
+                      </span>
+											<span class="thumb-info-type">
+                        Administrator
+                      </span>
 										</div>
 									</div>
 
@@ -91,7 +95,9 @@
 	        			              <tbody>
 							              <tr>
 							                <td>Username</td>
-							                <th>Honourable</th>
+							                <th>
+                                <%= session[:username] %>
+                              </th>
 							               </tr>
 							              <tr>
 							                <td>First Name</td>
@@ -102,18 +108,16 @@
 							                <th>Banda</th>
 							              </tr>
 							               <td>E-Mail</td>
-							                <th>honourable@gmail.com</th>
+							                <th>
+                                username@gmail.com
+                              </th>
 							               </tr>
 							              <tr>
 							                <td>Role</td>
-							                <th>Data Manager</th>
+							                <th>Administrator</th>
 							               </tr>
 							              <tr>
-							                <td>Created At</td>
-							                <th>12/11/2019</th>
-							              </tr>
-							               <tr>
-							                <td>Updated At</td>
+							                <td>Date Created</td>
 							                <th>12/11/2019</th>
 							              </tr>
 							              </tbody>
