@@ -70,8 +70,40 @@
         // using the done promise callback
             .done(function(data) {
                 if (data.token.length > 0) {
+                    // $('form').append('<div class="alert alert-danger">' + data.message + '</div>');
                     document.location = '/';
                 }
+                // here we will handle errors and validation messages
+                // if ( ! data.success) {
+                //
+                //     // handle errors for name ---------------
+                //     // if (data.errors.name) {
+                //     //     $('#name-group').addClass('has-error'); // add the error class to show red input
+                //     //     $('#name-group').append('<div class="help-block">' + data.errors.name + '</div>'); // add the actual error message under our input
+                //     // }
+                //     //
+                //     // // handle errors for email ---------------
+                //     // if (data.errors.email) {
+                //     //     $('#email-group').addClass('has-error'); // add the error class to show red input
+                //     //     $('#email-group').append('<div class="help-block">' + data.errors.email + '</div>'); // add the actual error message under our input
+                //     // }
+                //     //
+                //     // // handle errors for superhero alias ---------------
+                //     // if (data.errors.superheroAlias) {
+                //     //     $('#superhero-group').addClass('has-error'); // add the error class to show red input
+                //     //     $('#superhero-group').append('<div class="help-block">' + data.errors.superheroAlias + '</div>'); // add the actual error message under our input
+                //     // }
+                //
+                // } else {
+
+                    // ALL GOOD! just show the success message!
+                    // $('form').append('<div class="alert alert-success">' + data.message + '</div>');
+                // }
+            })
+            // using the fail promise callback
+            .fail(function(data) {
+                $('form').append('<div class="alert alert-danger">Incorrect username or password combination</div>');
+                console.log(data);
             });
 
         event.preventDefault();
