@@ -25,7 +25,7 @@ class CaseListingController < ApplicationController
             resp['hiv_test_date'],
             resp['hiv_test_facility'],
             resp['initiation_date'],
-            '',
+            resp['current_regimen'],
             '',
             resp['latest_vl_result'],
             resp['latest_vl_date'],
