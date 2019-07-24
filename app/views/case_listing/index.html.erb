@@ -13,6 +13,7 @@
 <%= stylesheet_link_tag 'octopus/summernote-bs3', rel: 'stylesheet' %>
 <%= stylesheet_link_tag 'octopus/codemirror', rel: 'stylesheet' %>
 <%= stylesheet_link_tag 'octopus/monokai' %>
+<%= stylesheet_link_tag 'octopus/pnotify.custom', rel: 'stylesheet' %>
 
 <section class="panel">
   <header class="panel-heading">
@@ -34,7 +35,7 @@
           </div>
         </div>
         <div class="form-group col-lg-6" style="border: 0px;">
-          <label class="col-md-3 control-label">Date range</label>
+          <label class="col-md-3 control-label">ART Initiation Date Range</label>
           <div class="col-md-6">
             <div class="input-daterange input-group" data-plugin-datepicker>
 														<span class="input-group-addon">
@@ -57,7 +58,7 @@
 
 <section class="panel">
   <div class="panel-body">
-    <table class="table table-bordered table-striped" id="datatable-ajax" data-url="<%= asset_path 'ajax-datatables-sample.json' %>">
+    <table class="table table-bordered table-striped" id="datatable-ajax">
       <thead>
       <tr>
         <th>Surveillance ID</th>
@@ -78,6 +79,20 @@
     </table>
   </div>
 </section>
+
+<div class="row">
+  <div class="col-md-12">
+    <section class="panel">
+      <header class="panel-heading">
+        <h2 class="panel-title">Ajax</h2>
+        <p class="panel-subtitle">You have full control of what is displayed in modal, align it to any side via CSS, enable or disable scroll on right side of window.</p>
+      </header>
+      <div class="panel-body">
+        <a class="simple-ajax-modal btn btn-default" href="<%= asset_path 'octopus/ajax/ui-elements-modals-ajax.html'%>">Load Ajax Content</a>
+      </div>
+    </section>
+  </div>
+</div>
 
 <%= javascript_include_tag 'octopus/select2' %>
 <%= javascript_include_tag 'octopus/jquery.dataTables' %>
@@ -105,6 +120,8 @@
 <%= javascript_include_tag 'octopus/summernote' %>
 <%= javascript_include_tag 'octopus/bootstrap-maxlength' %>
 <%= javascript_include_tag 'octopus/ios7-switch' %>
+<%= javascript_include_tag 'octopus/pnotify.custom' %>
+<%= javascript_include_tag 'octopus/examples.modals' %>
 
 <script>
     let $table = $('#datatable-ajax');
@@ -136,7 +153,7 @@
             .done(function(data) {
                 dtTable.fnClearTable();
                 dtTable.fnDestroy();
-                $table.dataTable({
+                dtTable = $table.dataTable({
                     bProcessing: true,
                     data: data
                 });
@@ -145,4 +162,14 @@
         event.preventDefault();
     });
 
+    // view case profile
+    $($table).on('click', 'tbody tr', function() {
+        //get textContent of the TD
+        console.log('TD cell textContent : ', this);
+
+        //get the value of the TD using the API
+        // console.log('value by API : ', dtTable.cell({ row: this.parentNode.rowIndex, column : this.cellIndex }).data());
+        // console.log(dtTable.row(this));
+        // console.log('API row values : ', dtTable.row(this).data());
+    })
 </script>

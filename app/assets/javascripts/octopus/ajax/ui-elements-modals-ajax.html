@@ -1,0 +1,146 @@
+<div id="custom-content" class="modal-block modal-block-md">
+    <section class="panel">
+        <header class="panel-heading">
+            <h2 class="panel-title">Case Listing: Surveillance #nbj176</h2>
+        </header>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-bordered table-striped" id="datatable-ajax-case-profile">
+                        <tr>
+                            <th>Surveillance ID</th>
+                            <td>#nbj176</td>
+                        </tr>
+                        <tr>
+                            <th> Gender</th>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th> Month of Birth</th>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th> HIV Test Date</th>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th> HIV Test Facility</th>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th> ART Initiation Date</th>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th> ART Regimen</th>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th> ART Facility</th>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th> Latest Viral Load Result</th>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th> Latest Viral Date</th>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th> Latest Viral Load Facility</th>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th> ART INIT (First Registered)</th>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th> Entry into Care Date</th>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th> 1st CD4 Test Date</th>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th> 1st Prescribed ART INIT Date</th>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th> 1st Viral Load Test Date</th>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th> Follow-Up Viral Load Test Date</th>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th> Suppressed Viral Load Result (Low VL History)</th>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th> Death Date</th>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th> Cause of Death</th>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th> Staging Information</th>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th> Show Facility Movement(History)</th>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <footer class="panel-footer">
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <button class="btn btn-default modal-dismiss">Close</button>
+                </div>
+            </div>
+        </footer>
+    </section>
+</div>
+
+<script>
+    $(document).ready( function () {
+        let $table = $('#datatable-ajax-case-profile');
+        let dtTable;
+        dtTable = $table.dataTable();
+
+        let formData = {
+            'start_date' : '1900-01-01',
+            'end_date' : '2019-01-01'
+        };
+
+        $.ajax({
+            type        : 'POST',
+            url         : '/case_listing',
+            headers : {
+                'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+            },
+            data        : formData,
+            dataType    : 'json',
+            encode       : true
+        })
+        // using the done promise callback
+            .done(function(data) {
+                alert('hello');
+                dtTable.fnClearTable();
+                dtTable.fnDestroy();
+                dtTable = $table.dataTable({
+                    bProcessing: true,
+                    data: data
+                });
+            });
+    } );
+</script>
