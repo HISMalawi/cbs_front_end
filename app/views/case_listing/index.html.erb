@@ -80,7 +80,7 @@
   </div>
 </section>
 
-<div class="row">
+<div class="row" style="visibility: hidden;">
   <div class="col-md-12">
     <section class="panel">
       <header class="panel-heading">
@@ -167,9 +167,14 @@
         //get textContent of the TD
         console.log('TD cell textContent : ', this);
 
-        //get the value of the TD using the API
-        // console.log('value by API : ', dtTable.cell({ row: this.parentNode.rowIndex, column : this.cellIndex }).data());
-        // console.log(dtTable.row(this));
-        // console.log('API row values : ', dtTable.row(this).data());
+        $('.simple-ajax-modal').click();
+        /*
+        Call the Ajax modal
+        */
+        // $('.simple-ajax-modal').magnificPopup({
+        //     type: 'ajax',
+        //     modal: true
+        // });
+
     })
 </script>
