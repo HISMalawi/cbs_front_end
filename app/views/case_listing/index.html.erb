@@ -80,18 +80,124 @@
   </div>
 </section>
 
-<div class="row" style="visibility: hidden;">
-  <div class="col-md-12">
-    <section class="panel">
-      <header class="panel-heading">
-        <h2 class="panel-title">Ajax</h2>
-        <p class="panel-subtitle">You have full control of what is displayed in modal, align it to any side via CSS, enable or disable scroll on right side of window.</p>
-      </header>
-      <div class="panel-body">
-        <a class="simple-ajax-modal btn btn-default" href="<%= asset_path 'octopus/ajax/ui-elements-modals-ajax.html'%>">Load Ajax Content</a>
-      </div>
-    </section>
+
+<section class="panel" style="visibility: hidden;">
+  <div class="panel-body">
+    <a id="open-form" class="modal-with-form btn btn-default" href="#modalForm" style="visibility: hidden;">Open Form</a>
   </div>
+</section>
+
+<!-- Modal Form -->
+<div id="modalForm" class="modal-block modal-block-primary mfp-hide">
+  <section class="panel">
+    <header class="panel-heading">
+      <h2 class="panel-title">
+        Case Listing: Surveillance <span id="surv_id_header">#nbj176</span>
+      </h2>
+    </header>
+    <div class="panel-body">
+      <table class="table table-bordered table-striped" id="specific_case_profile_table">
+        <tr>
+          <th>Surveillance ID</th>
+          <td id="surv_id">#nbj176</td>
+        </tr>
+        <tr>
+          <th> Gender</th>
+          <td id="gender">&nbsp;</td>
+        </tr>
+        <tr>
+          <th> Month of Birth</th>
+          <td id="month_of_birth">&nbsp;</td>
+        </tr>
+        <tr>
+          <th> HIV Test Date</th>
+          <td id="hiv_test_date">&nbsp;</td>
+        </tr>
+        <tr>
+          <th> HIV Test Facility</th>
+          <td id="hiv_test_facility">&nbsp;</td>
+        </tr>
+        <tr>
+          <th> ART Initiation Date</th>
+          <td id="art_init_date">&nbsp;</td>
+        </tr>
+        <tr>
+          <th> ART Regimen</th>
+          <td id="art_regimen">&nbsp;</td>
+        </tr>
+        <tr>
+          <th> ART Facility</th>
+          <td id="art_facility">&nbsp;</td>
+        </tr>
+        <tr>
+          <th> Latest Viral Load Result</th>
+          <td id="latest_vl_result">&nbsp;</td>
+        </tr>
+        <tr>
+          <th> Latest Viral Date</th>
+          <td id="latest_viral_date">&nbsp;</td>
+        </tr>
+        <tr>
+          <th> Latest Viral Load Facility</th>
+          <td id="latest_vl_facility">&nbsp;</td>
+        </tr>
+        <tr>
+          <th> ART INIT (First Registered)</th>
+          <td id="art_ini_first_reg">&nbsp;</td>
+        </tr>
+        <tr>
+          <th> Entry into Care Date</th>
+          <td id="entry_into_care_date">&nbsp;</td>
+        </tr>
+        <tr>
+          <th> 1st CD4 Test Date</th>
+          <td id="first_cd4_test_date">&nbsp;</td>
+        </tr>
+        <tr>
+          <th> 1st Prescribed ART INIT Date</th>
+          <td id="first_prescribed_art_init_date">&nbsp;</td>
+        </tr>
+        <tr>
+          <th> 1st Viral Load Test Date</th>
+          <td id="first_vl_test_date">&nbsp;</td>
+        </tr>
+        <tr>
+          <th> Follow-Up Viral Load Test Date</th>
+          <td id="follow_up_vl_test_date">&nbsp;</td>
+        </tr>
+        <tr>
+          <th> Suppressed Viral Load Result (Low VL History)</th>
+          <td id="suppressed_vl_result">&nbsp;</td>
+        </tr>
+        <tr>
+          <th> Death Date</th>
+          <td id="death_date">&nbsp;</td>
+        </tr>
+        <tr>
+          <th> Cause of Death</th>
+          <td id="cause_of_death">&nbsp;</td>
+        </tr>
+        <tr>
+          <th> Staging Information</th>
+          <td id="staging_info">&nbsp;</td>
+        </tr>
+        <tr>
+          <th> Show Facility Movement(History)</th>
+          <td id="facility_movement_history">&nbsp;</td>
+        </tr>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+    <footer class="panel-footer">
+      <div class="row">
+        <div class="col-md-12 text-right">
+          <button class="btn btn-primary modal-confirm">Submit</button>
+          <button class="btn btn-default modal-dismiss">Cancel</button>
+        </div>
+      </div>
+    </footer>
+  </section>
 </div>
 
 <%= javascript_include_tag 'octopus/select2' %>
@@ -167,7 +273,8 @@
         //get textContent of the TD
         console.log('TD cell textContent : ', this);
 
-        $('.simple-ajax-modal').click();
+        // $('.simple-ajax-modal').click();
+        $('#open-form').click();
         /*
         Call the Ajax modal
         */

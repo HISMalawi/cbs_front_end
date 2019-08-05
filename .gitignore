@@ -26,3 +26,6 @@
 
 # Ignore all .idea files
 .idea/
+
+# Ignore application yml
+/config/application.yml

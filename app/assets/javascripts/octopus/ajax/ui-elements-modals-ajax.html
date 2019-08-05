@@ -113,6 +113,7 @@
 
 <script>
     $(document).ready( function () {
+
         let $table = $('#datatable-ajax-case-profile');
         let dtTable;
         dtTable = $table.dataTable();
@@ -121,6 +122,8 @@
             'start_date' : '1900-01-01',
             'end_date' : '2019-01-01'
         };
+
+        console.log('Wow');
 
         $.ajax({
             type        : 'POST',
@@ -134,7 +137,7 @@
         })
         // using the done promise callback
             .done(function(data) {
-                alert('hello');
+                console.log('hello');
                 dtTable.fnClearTable();
                 dtTable.fnDestroy();
                 dtTable = $table.dataTable({
