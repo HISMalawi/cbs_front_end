@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'client_case_profile/index'
+  get 'client_case_profile/show'
   match '/sign_in', to: 'users#sign_in', via: [:get, :post]
   get '/sign_up', to: 'users#sign_up'
   get '/sign_out', to: 'users#sign_out'
@@ -11,6 +13,7 @@ Rails.application.routes.draw do
   get '/view_users', to: 'users#show'
   match '/art_initiation', to: 'art_initiation#index', via: [:get, :post]
   match '/case_listing', to: 'case_listing#index', via: [:get, :post]
+  match '/client_case_profile/:id', to: 'client_case_profile#index', via: [:get, :post]
   get '/', to: 'dashboard#index'
 
   root 'dashboard#index'

@@ -192,8 +192,8 @@
     <footer class="panel-footer">
       <div class="row">
         <div class="col-md-12 text-right">
-          <button class="btn btn-primary modal-confirm">Submit</button>
-          <button class="btn btn-default modal-dismiss">Cancel</button>
+          <button class="btn btn-primary modal-confirm">Browse File</button>
+          <button class="btn btn-default modal-dismiss">Download</button>
         </div>
       </div>
     </footer>
@@ -278,10 +278,52 @@
         /*
         Call the Ajax modal
         */
-        // $('.simple-ajax-modal').magnificPopup({
-        //     type: 'ajax',
-        //     modal: true
-        // });
 
-    })
+        let formData = {
+            'start_date' : $('#start_date').val(),// '1900-01-01',
+            'end_date' : $('#end_date').val(),// '2019-01-01'
+            'person_id' : '20100168'
+        };
+
+        $.ajax({
+            type        : 'POST',
+            url         : '/client_case_profile/'+formData.person_id,
+            headers : {
+                'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+            },
+            data        : formData,
+            dataType    : 'json',
+            encode       : true
+        })
+        // using the done promise callback
+            .done(function(data) {
+                let contentData = data[0];
+                $('#surv_id_header').text(contentData[0]);
+                $('#surv_id').text(contentData[0]);
+                $('#gender').text(contentData[1]);
+                $('#month_of_birth').text(contentData[2]);
+                $('#hiv_test_date').text(contentData[3]);
+                $('#hiv_test_facility').text(contentData[4]);
+                $('#art_init_date').text(contentData[5]);
+                $('#art_regimen').text(contentData[6]);
+                $('#art_facility').text(contentData[7]);
+                $('#latest_vl_result').text(contentData[8]);
+                $('#latest_viral_date').text(contentData[9]);
+                $('#latest_vl_facility').text(contentData[10]);
+                $('#art_ini_first_reg').text(contentData[11]);
+                $('#entry_into_care_date').text(contentData[12]);
+                $('#first_cd4_test_date').text(contentData[13]);
+                $('#first_prescribed_art_init_date').text(contentData[14]);
+                $('#first_vl_test_date').text(contentData[15]);
+                $('#follow_up_vl_test_date').text(contentData[16]);
+                $('#suppressed_vl_result').text(contentData[17]);
+                $('#death_date').text(contentData[18]);
+                $('#cause_of_death').text(contentData[19]);
+                $('#staging_info').text(contentData[20]);
+                console.log(data[0]);
+            });
+
+    });
+
 </script>
+
