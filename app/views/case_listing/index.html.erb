@@ -80,7 +80,6 @@
   </div>
 </section>
 
-
 <section class="panel" style="visibility: hidden;">
   <div class="panel-body">
     <a id="open-form" class="modal-with-form btn btn-default" href="#modalForm" style="visibility: hidden;">Open Form</a>
@@ -92,7 +91,7 @@
   <section class="panel">
     <header class="panel-heading">
       <h2 class="panel-title">
-        Case Listing: Surveillance <span id="surv_id_header">#nbj176</span>
+        Case Profile: Surveillance <span id="surv_id_header">#nbj176</span>
       </h2>
     </header>
     <div class="panel-body">
@@ -193,7 +192,16 @@
       <div class="row">
         <div class="col-md-12 text-right">
           <button class="btn btn-primary modal-confirm">Browse File</button>
-          <button class="btn btn-default modal-dismiss">Download</button>
+          <div class="btn-group dropup">
+            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+              Download <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#"><i class="fa fa-file-excel-o"></i> .CSV</a></li>
+              <li><a href="#"><i class="fa fa-file-pdf-o"></i> .PDF</a></li>
+            </ul>
+          </div>
+          <button class="btn btn-default modal-dismiss"> Close</button>
         </div>
       </div>
     </footer>
@@ -273,15 +281,14 @@
         //get textContent of the TD
         console.log('TD cell textContent : ', this);
 
-        // $('.simple-ajax-modal').click();
         $('#open-form').click();
         /*
         Call the Ajax modal
         */
 
         let formData = {
-            'start_date' : $('#start_date').val(),// '1900-01-01',
-            'end_date' : $('#end_date').val(),// '2019-01-01'
+            'start_date' : $('#start_date').val(),
+            'end_date' : $('#end_date').val(),
             'person_id' : '20100168'
         };
 
@@ -320,7 +327,6 @@
                 $('#death_date').text(contentData[18]);
                 $('#cause_of_death').text(contentData[19]);
                 $('#staging_info').text(contentData[20]);
-                console.log(data[0]);
             });
 
     });
