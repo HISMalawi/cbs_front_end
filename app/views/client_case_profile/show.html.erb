@@ -1,2 +1,118 @@
-<h1>ClientCaseProfile#show</h1>
-<p>Find me in app/views/client_case_profile/show.html.erb</p>
+<header class="page-header">
+  <h2>Case File Profile</h2>
+
+  <div class="right-wrapper pull-right">
+    <ol class="breadcrumbs">
+      <li>
+        <a href="index.html">
+          <i class="fa fa-home"></i>
+        </a>
+      </li>
+      <li><span>Case Profile</span></li>
+      <li><span>Surv ID</span></li>
+    </ol>
+
+    <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
+  </div>
+</header>
+
+<!-- start: page -->
+<div class="timeline">
+  <div class="tm-body">
+    <div class="tm-title">
+      <h3 class="h5 text-uppercase">November 2013</h3>
+    </div>
+    <ol class="tm-items">
+      <li>
+        <div class="tm-info">
+          <div class="tm-icon"><i class="fa fa-star"></i></div>
+          <time class="tm-datetime" datetime="2013-11-22 19:13">
+            <div class="tm-datetime-date">7 months ago.</div>
+            <div class="tm-datetime-time">07:13 PM</div>
+          </time>
+        </div>
+        <div class="tm-box appear-animation" data-appear-animation="fadeInRight"data-appear-animation-delay="100">
+          <p>
+            It's awesome when we find a good solution for our projects, Porto Admin is <span class="text-primary">#awesome</span>
+          </p>
+          <div class="tm-meta">
+											<span>
+												<i class="fa fa-user"></i> By <a href="#">John Doe</a>
+											</span>
+            <span>
+												<i class="fa fa-tag"></i> <a href="#">Porto</a>, <a href="#">Awesome</a>
+											</span>
+            <span>
+												<i class="fa fa-comments"></i> <a href="#">5652 Comments</a>
+											</span>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="tm-info">
+          <div class="tm-icon"><i class="fa fa-thumbs-up"></i></div>
+          <time class="tm-datetime" datetime="2013-11-19 18:13">
+            <div class="tm-datetime-date">7 months ago.</div>
+            <div class="tm-datetime-time">06:13 PM</div>
+          </time>
+        </div>
+        <div class="tm-box appear-animation" data-appear-animation="fadeInRight" data-appear-animation-delay="250">
+          <p>
+            What is your biggest developer pain point?
+          </p>
+        </div>
+      </li>
+    </ol>
+    <div class="tm-title">
+      <h3 class="h5 text-uppercase">September 2013</h3>
+    </div>
+    <ol class="tm-items">
+      <li>
+        <div class="tm-info">
+          <div class="tm-icon"><i class="fa fa-star"></i></div>
+          <time class="tm-datetime" datetime="2013-11-22 19:13">
+            <div class="tm-datetime-date">7 months ago.</div>
+            <div class="tm-datetime-time">07:13 PM</div>
+          </time>
+        </div>
+        <div class="tm-box appear-animation" data-appear-animation="fadeInRight"data-appear-animation-delay="100">
+          <p>
+            It's awesome when we find a good solution for our projects, Porto Admin is <span class="text-primary">#awesome</span>
+          </p>
+          <div class="tm-meta">
+											<span>
+												<i class="fa fa-user"></i> By <a href="#">John Doe</a>
+											</span>
+            <span>
+												<i class="fa fa-tag"></i> <a href="#">Porto</a>, <a href="#">Awesome</a>
+											</span>
+            <span>
+												<i class="fa fa-comments"></i> <a href="#">5652 Comments</a>
+											</span>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="tm-info">
+          <div class="tm-icon"><i class="fa fa-thumbs-up"></i></div>
+          <time class="tm-datetime" datetime="2013-11-19 18:13">
+            <div class="tm-datetime-date">7 months ago.</div>
+            <div class="tm-datetime-time">06:13 PM</div>
+          </time>
+        </div>
+        <div class="tm-box appear-animation" data-appear-animation="fadeInRight" data-appear-animation-delay="250">
+          <p>
+            What is your biggest developer pain point?
+          </p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</div>
+<!-- end: page -->
+
+<!-- Specific Page Vendor -->
+<% javascript_include_tag 'octopus/jquery.appear' %>
+
+<!-- Examples -->
+<% javascript_include_tag 'octopus/examples.timeline' %>
