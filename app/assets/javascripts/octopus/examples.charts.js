@@ -12,7 +12,7 @@
 		data: morrisStackedData,
 		xkey: 'y',
 		ykeys: ['a', 'b'],
-		labels: ['Series A', 'Series B'],
+		labels: ['w/t Init', 'w/tout Init'],
 		barColors: ['#0088cc', '#2baab1'],
 		fillOpacity: 0.7,
 		smooth: false,
@@ -21,15 +21,15 @@
 	});
 
     /*
-    Morris: Stacked
+    Morris: Stacked2
     */
     Morris.Bar({
         resize: true,
         element: 'morrisStacked2',
-        data: morrisStackedData,
+        data: morrisStackedData2,
         xkey: 'y',
         ykeys: ['a', 'b'],
-        labels: ['Series A', 'Series B'],
+        labels: ['w/t Init', 'w/tout Init'],
         barColors: ['#0088cc', '#2baab1'],
         fillOpacity: 0.7,
         smooth: false,
