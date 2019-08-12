@@ -44,4 +44,5 @@ class ClientCaseProfileController < ApplicationController
   def show
     render layout: 'octopus'
   end
+
 end
