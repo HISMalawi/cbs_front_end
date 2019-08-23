@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'eid_listing/index'
+  get 'eid_listing/show'
   get 'case_profile_controller/index'
   get 'case_profile_controller/show'
   get 'client_case_profile/index'
@@ -15,6 +17,7 @@ Rails.application.routes.draw do
   get '/view_users', to: 'users#show'
   match '/art_initiation', to: 'art_initiation#index', via: [:get, :post]
   match '/case_listing', to: 'case_listing#index', via: [:get, :post]
+  match '/eid_listing', to: 'eid_listing#index', via: [:get, :post]
   match '/client_case_profile/:id', to: 'client_case_profile#index', via: [:get, :post]
   match '/client_case_profile/show/:id', to: 'client_case_profile#show', via: [:get, :post]
   get '/', to: 'dashboard#index'

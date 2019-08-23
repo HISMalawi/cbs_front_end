@@ -1,4 +1,4 @@
-class CaseListingController < ApplicationController
+class EidListingController < ApplicationController
   def index
     if request.post?
       start_date = format_passed_date(params[:start_date])
@@ -9,7 +9,7 @@ class CaseListingController < ApplicationController
           end_date: end_date.to_date
       }
 
-      url = '/reports/case_listing'
+      url = '/reports/eid_listing'
 
       response = post_params(url, payload, 'get')
 
@@ -38,5 +38,8 @@ class CaseListingController < ApplicationController
     else
       render layout: 'octopus'
     end
+  end
+
+  def show
   end
 end

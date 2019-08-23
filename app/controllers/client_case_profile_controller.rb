@@ -42,6 +42,34 @@ class ClientCaseProfileController < ApplicationController
   end
 
   def show
+    case_profile_id = params[:id]
+
+    # url = '/reports/client_case_listing'
+    #
+    # response = post_params(url, payload, 'get')
+    #
+    # data = []
+    #
+    # (JSON.parse(response) || []).each { |sn, resp|
+    #   birth_month = resp['birthdate'].to_date.strftime("%m-%Y")
+    #
+    #   data << [
+    #       resp['surveillance'],
+    #       resp['gender'],
+    #       birth_month,
+    #       resp['hiv_test_date'],
+    #       resp['hiv_test_facility'],
+    #       resp['initiation_date'],
+    #       resp['current_regimen'],
+    #       '',
+    #       resp['latest_vl_result'],
+    #       resp['latest_vl_date'],
+    #       resp['latest_vl_facility']
+    #   ]
+    # }
+    #
+    # render json: data
+    #
     render layout: 'octopus'
   end
 
