@@ -52,7 +52,7 @@
           </div>
         </div>
         <div class="form-group col-lg-6" style="border: 0px;">
-          <label class="col-md-3 control-label">ART Initiation Date Range</label>
+          <label class="col-md-3 control-label">Select EID Date Range</label>
           <div class="col-md-6">
             <div class="input-daterange input-group" data-plugin-datepicker>
 														<span class="input-group-addon">
@@ -88,12 +88,17 @@
         <th> Month of Birth</th>
         <th> HIV Test Date</th>
         <th> HIV Test Facility</th>
-        <th> ART Initiation Date</th>
-        <th> ART Regimen</th>
-        <th> ART Facility</th>
-        <th> Latest Viral Load Result</th>
-        <th> Latest Viral Date</th>
-        <th> Latest Viral Load Facility</th>
+        <th> PMTCT Initiation Date</th>
+        <th> Last Clinic Visit</th>
+        <th> Pill Count At Last Clinic</th>
+        <th> Mother Breast Feeding Status</th>
+        <th> Mother's Regimen</th>
+        <th> Confimatory EID Test</th>
+        <th> Confimatory HIV Test Date</th>
+        <th> Confimatory HIV Result Date</th>
+        <th> Last Pregnancy Status</th>
+        <th> PMTCT Testing Date</th>
+        <th> PMTCT Testing Result</th>
       </tr>
       </thead>
       <tbody>
@@ -139,32 +144,51 @@
           <td id="hiv_test_facility">&nbsp;</td>
         </tr>
         <tr>
-          <th> ART Initiation Date</th>
-          <td id="art_init_date">&nbsp;</td>
+         <th> PMTCT Initiation Date</th>
+          <td id="pmtct_init_date">&nbsp;</td>
         </tr>
         <tr>
-          <th> ART Regimen</th>
-          <td id="art_regimen">&nbsp;</td>
+          <th> Last Clinic Visit</th>
+            <td id="last_clinic_visit">&nbsp;</td>
         </tr>
         <tr>
-          <th> ART Facility</th>
-          <td id="art_facility">&nbsp;</td>
+        <th> Pill Count At Last Clinic</th>
+         <td id="pill_count_at_last_clinic">&nbsp;</td>
         </tr>
         <tr>
-          <th> Latest Viral Load Result</th>
-          <td id="latest_vl_result">&nbsp;</td>
+        <th> Mother Breast Feeding Status</th>
+         <td id="mother_breast_feeding_status">&nbsp;</td>
         </tr>
         <tr>
-          <th> Latest Viral Date</th>
-          <td id="latest_viral_date">&nbsp;</td>
+        <th> Mother's Regimen</th>
+        <td id="mother_regimen">&nbsp;</td>
         </tr>
         <tr>
-          <th> Latest Viral Load Facility</th>
-          <td id="latest_vl_facility">&nbsp;</td>
+        <th> Confimatory EID Test</th>
+        <td id="confimatory_eid_test">&nbsp;</td>
         </tr>
         <tr>
-          <th> ART INIT (First Registered)</th>
-          <td id="art_ini_first_reg">&nbsp;</td>
+        <th> Confimatory HIV Test Date</th>
+          <td id="confimatory_hiv_test_date">&nbsp;</td>
+        </tr>
+         <tr>
+        <th> Confimatory HIV Result Date</th>
+          <td id="confimatory_hiv_result_date">&nbsp;</td>
+        </tr>
+        <tr>
+       	<tr>
+         <th> Last Pregnancy Status</th>
+          <td id="last_pregnancy_status">&nbsp;</td>
+        </tr>
+        <tr>
+        <tr>
+         <th> PMTCT Testing Date</th>
+          <td id="pmtct_testing_date">&nbsp;</td>
+        </tr>
+        <tr>
+       	<tr>
+		<th> PMTCT Testing Result</th>
+          <td id="pmtct_testing_result">&nbsp;</td>
         </tr>
         <tr>
           <th> Entry into Care Date</th>
@@ -217,15 +241,6 @@
     <footer class="panel-footer">
       <div class="row">
         <div class="col-md-12 text-right">
-          <div class="btn-group dropup">
-            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-              Download <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-              <li><a onclick="export_table_to_csv('#specific_case_profile_table','case-profile.csv')"><i class="fa fa-file-excel-o"></i> .CSV</a></li>
-              <li><a href="#"><i class="fa fa-file-pdf-o"></i> .PDF</a></li>
-            </ul>
-          </div>
           <button class="btn btn-default modal-dismiss"> Close</button>
         </div>
       </div>
