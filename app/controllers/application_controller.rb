@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
         content_type: "application/json",
         payload: payload
     )
-
+    
     return response
   end
 
