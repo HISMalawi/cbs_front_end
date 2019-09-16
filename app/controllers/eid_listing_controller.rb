@@ -9,7 +9,7 @@ class EidListingController < ApplicationController
           end_date: end_date.to_date
       }
 
-      url = '/reports/eid_listing'
+      url = '/reports/cbs_eid_cases'
 
       response = post_params(url, payload, 'get')
 
