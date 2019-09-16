@@ -25,7 +25,7 @@
         </p>
       </div>
       <div class="col-lg-6 pull-right">
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" class="btn btn-primary" onclick="export_table_to_csv('#datatable-ajax','case_profile_full.csv')">
           <span><i class="fa fa-file-excel-o"></i></span> Download CSV
         </button>
       </div>
@@ -206,7 +206,7 @@
         <tr>
           <th> Show Facility Movement(History)</th>
           <td id="facility_movement_history">&nbsp;
-            <a href="/client_case_profile/show/510100696" class="btn btn-link btn-info">
+            <a id="client_case_url" class="btn btn-link btn-info">
               Show History
             </a>
           </td>
@@ -265,21 +265,29 @@
 
 <script>
     let $table = $('#datatable-ajax');
-    var dtTable;
+    let dtTable;
     let dataRendered = '';
+    let dtPageLength;
 
     $(document).ready( function () {
-        dtTable = $table.dataTable();
+        dtTable = $table.DataTable({
+          "pageLength": dtPageLength
+        });
     } );
 
     // process the form
     $('#filter-form').submit(function(event) {
+      var pageInfo = dtTable.page.info();
+      dtPageLength = pageInfo.length;
+      dtPage = pageInfo.page+1;
+      // let per_page = $('#datatable-ajax tbody tr:visible').length;
+      // console.log(per_page);
 
         let formData = {
             'start_date' : $('#start_date').val(),// '1900-01-01',
             'end_date' : $('#end_date').val(),// '2019-01-01',
             'page' : '1',
-            'per_page' : '50'
+            'per_page' : pageInfo.length
         };
 
         $.ajax({
@@ -294,9 +302,12 @@
         })
         // using the done promise callback
             .done(function(data) {
-                dtTable.fnClearTable();
-                dtTable.fnDestroy();
-                dtTable = $table.dataTable({
+                // dtTable.fnClearTable();
+                // dtTable.fnDestroy();
+                dtTable.clear().draw();
+                dtTable.destroy();
+                dtTable = $table.DataTable({
+                    pageLength: 25,
                     bProcessing: true,
                     data: data,
                     columnDefs: [
@@ -307,9 +318,6 @@
                         }
                     ]
                 });
-
-                var info = dtTable.page.info();
-                console.log(info.page);
             });
 
         event.preventDefault();
@@ -318,7 +326,9 @@
     // view case profile
     $($table).on('click', 'tbody tr', function() {
         //get textContent of the TD
-        console.log('TD cell textContent : ' + Object.keys(this));
+        let personId = dtTable.row( this ).data()[0];
+
+        document.getElementById("client_case_url").href = "/client_case_profile/show/"+personId;
 
         $('#open-form').click();
         /*
@@ -328,7 +338,7 @@
         let formData = {
             'start_date' : $('#start_date').val(),
             'end_date' : $('#end_date').val(),
-            'person_id' : '510100696'
+            'person_id' : personId
         };
 
         $.ajax({
