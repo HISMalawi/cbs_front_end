@@ -6,7 +6,9 @@ class CaseListingController < ApplicationController
 
       payload = {
           start_date: start_date.to_date,
-          end_date: end_date.to_date
+          end_date: end_date.to_date,
+          page: params[:page],
+          per_page: params[:per_page]
       }
 
       url = '/reports/case_listing'
