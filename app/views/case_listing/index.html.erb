@@ -287,7 +287,7 @@
             'start_date' : $('#start_date').val(),// '1900-01-01',
             'end_date' : $('#end_date').val(),// '2019-01-01',
             'page' : '1',
-            'per_page' : pageInfo.length
+            'per_page' : '100000' //pageInfo.length
         };
 
         $.ajax({
@@ -308,7 +308,7 @@
                 dtTable.destroy();
                 dtTable = $table.DataTable({
                     pageLength: 25,
-                    bProcessing: true,
+                    processing:true,
                     data: data,
                     columnDefs: [
                         {
