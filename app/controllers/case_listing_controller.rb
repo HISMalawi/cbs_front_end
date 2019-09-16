@@ -15,6 +15,10 @@ class CaseListingController < ApplicationController
 
       response = post_params(url, payload, 'get')
 
+      response_headers = response.headers
+
+      x_pagination = response.headers[:x_pagination]
+
       data = []
 
       (JSON.parse(response) || []).each do |sn, resp|
