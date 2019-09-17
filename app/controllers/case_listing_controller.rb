@@ -6,12 +6,18 @@ class CaseListingController < ApplicationController
 
       payload = {
           start_date: start_date.to_date,
-          end_date: end_date.to_date
+          end_date: end_date.to_date,
+          page: params[:page],
+          per_page: params[:per_page]
       }
 
       url = '/reports/case_listing'
 
       response = post_params(url, payload, 'get')
+
+      response_headers = response.headers
+
+      x_pagination = response.headers[:x_pagination]
 
       data = []
 

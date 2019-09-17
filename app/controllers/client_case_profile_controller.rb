@@ -31,9 +31,47 @@ class ClientCaseProfileController < ApplicationController
             '',
             resp['latest_vl_result'],
             resp['latest_vl_date'],
-            resp['latest_vl_facility']
+            resp['latest_vl_facility'],
+            '',
+            resp['date_enrolled'],
+            '',
+            '',
+            '',
+            resp['viral_load_follow_up_date'],
+            resp['Vl_supressed_result'],
+            resp['death_date'],
+            resp['death_cause'],
+            resp['who_stage']
         ]
       }
+
+=begin
+"surveillance": "oomQGd",
+"gender": "F",
+"birthdate": "1972-12-22",
+"date_enrolled": "2005-07-14",
+"hiv_test_date": "2005-06-30",
+"hiv_test_facility": "Kamuzu Central Hospital",
+"initiation_date": "2005-07-14",
+"who_stage": 9806,
+"age_at_initiation": 32,
+"first_viral_load_date": null,
+"latest_vl_result": "N/A",
+"latest_vl_date": "N/A",
+"latest_vl_facility": "N/A",
+"viral_load_follow_up_date": null,
+"Vl_supressed_result": null,
+"current_regimen": "5A",
+"facility_tracking": [],
+"death_date": null,
+"death_cause": null,
+"first_cd4_count_date": [
+    {
+        "test_result_id": null,
+        "trd": null
+    }
+]
+=end
 
       render json: data
     else

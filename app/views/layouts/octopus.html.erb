@@ -33,6 +33,9 @@
   <!-- Theme Custom CSS -->
   <%= stylesheet_link_tag 'octopus/theme-custom' %>
 
+  <!-- Public datatables -->
+  <%= stylesheet_link_tag 'DataTables/datatables.min' %>
+
   <!-- Head Libs -->
   <%= javascript_include_tag 'octopus/modernizr' %>
 
@@ -403,6 +406,9 @@
 
       <!-- Jacobs custom files -->
       <%= javascript_include_tag 'export_csv' %>
+
+      <!-- Public datatables -->
+      <%= javascript_include_tag 'DataTables/datatables.min' %>
 
       <!-- start: page -->
       <%= yield %>
