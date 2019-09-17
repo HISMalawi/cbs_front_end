@@ -302,8 +302,6 @@
         })
         // using the done promise callback
             .done(function(data) {
-                // dtTable.fnClearTable();
-                // dtTable.fnDestroy();
                 dtTable.clear().draw();
                 dtTable.destroy();
                 dtTable = $table.DataTable({
@@ -319,7 +317,6 @@
                     ],
                     "initComplete": function(settings, json) {
                     $('#loadingSpinner').hide();
-                    //or $('#loadingSpinner').empty();
                   }
                 });
             });
