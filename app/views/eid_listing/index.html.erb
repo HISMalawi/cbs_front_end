@@ -24,11 +24,7 @@
           A listing of all known Early Infant Diagnosis
         </p>
       </div>
-      <div class="col-lg-6 pull-right">
-        <button type="submit" class="btn btn-primary">
-          <span><i class="fa fa-file-excel-o"></i></span> Download CSV
-        </button>
-      </div>
+
     </div>
   </header>
   <!-- Filter section -->
@@ -70,8 +66,10 @@
           <button type="submit" class="btn btn-success">
             <span><i class="fa fa-send-o"></i></span> Apply
           </button>
+          <button type="submit" class="btn btn-primary" onclick="export_table_to_csv('#datatable-ajax','eid_report.csv')">
+            <span><i class="fa fa-file-excel-o"></i></span> Download CSV
+          </button>
         </div>
-      </div>
     </form>
   </div>
   <!-- end filter -->
@@ -86,20 +84,13 @@
         <th> Surveillance ID</th>
         <th> Gender</th>
         <th> Month of Birth</th>
-        <th> HIV Test Date</th>
-        <th> HIV Test Facility</th>
-        <th> PMTCT Initiation Date</th>
-        <th> Last Clinic Visit</th>
-        <th> Pill Count At Last Clinic</th>
-        <th> Mother Breast Feeding Status</th>
-        <th> Mother's Regimen</th>
-        <th> Confimatory EID Test</th>
         <th> Confimatory HIV Test Date</th>
-        <th> Confimatory HIV Result Date</th>
-        <th> Last Pregnancy Status</th>
-        <th> PMTCT Testing Date</th>
-        <th> PMTCT Testing Result</th>
-      </tr>
+        <th> HIV Test Facility</th>
+        <th> ART Initiation Date</th>
+        <th> Baby's Regimen</th>
+        <th> Age At Initiation</th>
+        <th> Last Clinic Visit</th>
+        </tr>
       </thead>
       <tbody>
       </tbody>
@@ -187,7 +178,7 @@
         </tr>
         <tr>
        	<tr>
-		<th> PMTCT Testing Result</th>
+		    <th> PMTCT Testing Result</th>
           <td id="pmtct_testing_result">&nbsp;</td>
         </tr>
         <tr>
@@ -296,7 +287,7 @@
 
         $.ajax({
             type        : 'POST',
-            url         : '/case_listing',
+            url         : '/eid_listing',
             headers : {
                 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
             },
