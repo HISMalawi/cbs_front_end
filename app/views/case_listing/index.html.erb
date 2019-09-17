@@ -80,6 +80,7 @@
 
 <section class="panel">
   <div class="panel-body">
+    <%= image_tag 'ajax-loader.gif', :id => 'loadingSpinner' %>
     <table class="table table-bordered table-striped" id="datatable-ajax">
       <thead>
       <tr>
@@ -316,7 +317,11 @@
                             visible: false,
                             searchable: false
                         }
-                    ]
+                    ],
+                    "initComplete": function(settings, json) {
+                    $('#loadingSpinner').hide();
+                    //or $('#loadingSpinner').empty();
+                  }
                 });
             });
 
