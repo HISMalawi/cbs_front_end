@@ -20,6 +20,35 @@
 <div class="timeline">
   <div class="tm-body">
     <div class="tm-title">
+      <h3 class="h5 text-uppercase">
+        <strong>Client ID:</strong> <%= params[:id] %>
+      </h3>
+    </div>
+    <ol class="tm-items">
+      <li>
+        <div class="tm-info">
+          <div class="tm-icon"><i class="fa fa-tasks"></i></div>
+          <time class="tm-datetime" datetime="2013-11-22 19:13">
+            <div class="tm-datetime-date">not available</div>
+            <div class="tm-datetime-time">N/A</div>
+          </time>
+        </div>
+        <div class="tm-box">
+          <p>
+            <span class="text-primary">
+              Facility Movement (History)
+            </span>
+          </p>
+          <div class="tm-meta">
+            <p>
+              No client movement available for selected Case
+            </p>
+          </div>
+        </div>
+      </li>
+    </ol>
+    <!--
+    <div class="tm-title">
       <h3 class="h5 text-uppercase">November 2013</h3>
     </div>
     <ol class="tm-items">
@@ -105,6 +134,7 @@
         </div>
       </li>
     </ol>
+    -->
   </div>
 </div>
 <!-- end: page -->
