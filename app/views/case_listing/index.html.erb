@@ -24,11 +24,6 @@
           A listing of all known cases
         </p>
       </div>
-      <div class="col-lg-6 pull-right">
-        <button type="submit" class="btn btn-primary" onclick="export_table_to_csv('#datatable-ajax','case_profile_full.csv')">
-          <span><i class="fa fa-file-excel-o"></i></span> Download CSV
-        </button>
-      </div>
     </div>
   </header>
 
@@ -70,6 +65,9 @@
         <div class="form-group col-lg-12">
           <button type="submit" class="btn btn-success">
             <span><i class="fa fa-send-o"></i></span> Apply
+          </button>
+          <button type="submit" class="btn btn-primary" onclick="export_table_to_csv('#datatable-ajax','case_listing_report.csv')">
+            <span><i class="fa fa-file-excel-o"></i></span> Download CSV
           </button>
         </div>
       </div>
@@ -224,7 +222,6 @@
             </button>
             <ul class="dropdown-menu" role="menu">
               <li><a onclick="export_table_to_csv('#specific_case_profile_table','case-profile.csv')"><i class="fa fa-file-excel-o"></i> .CSV</a></li>
-              <li><a href="#"><i class="fa fa-file-pdf-o"></i> .PDF</a></li>
             </ul>
           </div>
           <button class="btn btn-default modal-dismiss"> Close</button>

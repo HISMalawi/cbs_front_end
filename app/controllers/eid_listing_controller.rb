@@ -9,7 +9,7 @@ class EidListingController < ApplicationController
           end_date: end_date.to_date
       }
 
-      url = '/reports/eid_listing'
+      url = '/reports/cbs_eid_cases'
 
       response = post_params(url, payload, 'get')
 
@@ -27,10 +27,11 @@ class EidListingController < ApplicationController
             resp['hiv_test_facility'],
             resp['initiation_date'],
             resp['current_regimen'],
-            '',
+            resp['age_at_initiation'],
+            resp['latest_vl_facility'],
             resp['latest_vl_result'],
-            resp['latest_vl_date'],
-            resp['latest_vl_facility']
+            resp['latest_vl_date']
+          
         ]
       end
 
