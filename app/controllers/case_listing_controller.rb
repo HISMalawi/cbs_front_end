@@ -22,7 +22,7 @@ class CaseListingController < ApplicationController
       data = []
 
       (JSON.parse(response) || []).each do |sn, resp|
-        birth_month = resp['birthdate'].to_date.strftime("%m-%Y")
+        birth_month = resp['birthdate'].to_date.strftime("%b/%Y")
 
         data << [
             sn,
