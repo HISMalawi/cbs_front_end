@@ -45,34 +45,6 @@ class ClientCaseProfileController < ApplicationController
         ]
       }
 
-=begin
-"surveillance": "oomQGd",
-"gender": "F",
-"birthdate": "1972-12-22",
-"date_enrolled": "2005-07-14",
-"hiv_test_date": "2005-06-30",
-"hiv_test_facility": "Kamuzu Central Hospital",
-"initiation_date": "2005-07-14",
-"who_stage": 9806,
-"age_at_initiation": 32,
-"first_viral_load_date": null,
-"latest_vl_result": "N/A",
-"latest_vl_date": "N/A",
-"latest_vl_facility": "N/A",
-"viral_load_follow_up_date": null,
-"Vl_supressed_result": null,
-"current_regimen": "5A",
-"facility_tracking": [],
-"death_date": null,
-"death_cause": null,
-"first_cd4_count_date": [
-    {
-        "test_result_id": null,
-        "trd": null
-    }
-]
-=end
-
       render json: data
     else
       render layout: 'octopus'
@@ -80,34 +52,18 @@ class ClientCaseProfileController < ApplicationController
   end
 
   def show
-    case_profile_id = params[:id]
+    client_movement_id = params[:id]
 
-    # url = '/reports/client_case_listing'
-    #
-    # response = post_params(url, payload, 'get')
-    #
-    # data = []
-    #
-    # (JSON.parse(response) || []).each { |sn, resp|
-    #   birth_month = resp['birthdate'].to_date.strftime("%m-%Y")
-    #
-    #   data << [
-    #       resp['surveillance'],
-    #       resp['gender'],
-    #       birth_month,
-    #       resp['hiv_test_date'],
-    #       resp['hiv_test_facility'],
-    #       resp['initiation_date'],
-    #       resp['current_regimen'],
-    #       '',
-    #       resp['latest_vl_result'],
-    #       resp['latest_vl_date'],
-    #       resp['latest_vl_facility']
-    #   ]
-    # }
-    #
-    # render json: data
-    #
+      payload = {
+          person_id: client_movement_id
+      }
+
+    url = '/reports/facility_movement'
+    
+    response = post_params(url, payload, 'get')
+    
+    @response = JSON.parse(response)
+    
     render layout: 'octopus'
   end
 

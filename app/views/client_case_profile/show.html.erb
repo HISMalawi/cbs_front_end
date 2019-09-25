@@ -21,34 +21,35 @@
   <div class="tm-body">
     <div class="tm-title">
       <h3 class="h5 text-uppercase">
-        <strong>Client ID:</strong> <%= params[:id] %>
+        <strong>Client ID:</strong> <%= @response['surveillance_id'] %>
       </h3>
     </div>
-    <ol class="tm-items">
+  <% @response['movement'].each do |response| %>
+     <ol class="tm-items">
       <li>
         <div class="tm-info">
           <div class="tm-icon"><i class="fa fa-tasks"></i></div>
           <time class="tm-datetime" datetime="2013-11-22 19:13">
-            <div class="tm-datetime-date">not available</div>
-            <div class="tm-datetime-time">N/A</div>
+            <div class="tm-datetime-date"><%= response['latest_visit_date'].to_date.strftime('%d/%^b/%Y') %></div>
+            <div class="tm-datetime-time"><%= response['latest_visit_date'].to_time.strftime('%H:%M') %></div>
           </time>
         </div>
         <div class="tm-box">
           <p>
             <span class="text-primary">
-              Facility Movement (History)
+             <strong> <%= response['program'] %></strong> <span class="text-primary"><%= '@' + response['site_name'] %></span>
             </span>
           </p>
           <div class="tm-meta">
             <p>
-              No client movement available for selected Case
             </p>
           </div>
         </div>
       </li>
     </ol>
-    <!--
-    <div class="tm-title">
+  <% end %>
+  <!--
+      <div class="tm-title">
       <h3 class="h5 text-uppercase">November 2013</h3>
     </div>
     <ol class="tm-items">
@@ -57,12 +58,12 @@
           <div class="tm-icon"><i class="fa fa-tasks"></i></div>
           <time class="tm-datetime" datetime="2013-11-22 19:13">
             <div class="tm-datetime-date">7 months ago.</div>
-            <div class="tm-datetime-time">07:13 PM</div>
+            <div class="tm-datetime-time"> <%= response['latest_visit_date'].strftime('%Y-%m-%d') rescue nil %></div>
           </time>
         </div>
         <div class="tm-box">
           <p>
-            ART clinic <span class="text-primary">@ KCH</span>
+            <%= response['program'] %> <span class="text-primary"><%= response['site_name'] %></span>
           </p>
           <div class="tm-meta">
             <p>
