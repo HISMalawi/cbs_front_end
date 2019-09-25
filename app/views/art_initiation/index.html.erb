@@ -89,47 +89,47 @@
               <script type="text/javascript">
 
                   let morrisStackedData = [{
-                      y: '2004',
+                      y: '<1',
                       a: 10,
                       b: 30
                   }, {
-                      y: '2005',
+                      y: '1-9',
                       a: 100,
                       b: 25
                   }, {
-                      y: '2006',
+                      y: '10-14F',
                       a: 60,
                       b: 25
                   }, {
-                      y: '2007',
+                      y: '10-14M',
                       a: 75,
                       b: 35
                   }, {
-                      y: '2008',
+                      y: '15-19F',
                       a: 90,
                       b: 20
                   }, {
-                      y: '2009',
+                      y: '15-19M',
                       a: 75,
                       b: 15
                   }, {
-                      y: '2010',
+                      y: '20-24F',
                       a: 50,
                       b: 10
                   }, {
-                      y: '2011',
+                      y: '20-24M',
                       a: 75,
                       b: 25
                   }, {
-                      y: '2012',
+                      y: '25-49F',
                       a: 30,
                       b: 10
                   }, {
-                      y: '2013',
+                      y: '25-49M',
                       a: 75,
                       b: 5
                   }, {
-                      y: '2014',
+                      y: '50+F',
                       a: 60,
                       b: 8
                   }];
@@ -261,47 +261,47 @@
               <script type="text/javascript">
 
                   let morrisStackedData2 = [{
-                      y: '2004',
+                      y: '<1',
                       a: 10,
                       b: 30
                   }, {
-                      y: '2005',
+                      y: '1-9',
                       a: 100,
                       b: 25
                   }, {
-                      y: '2006',
+                      y: '10-14F',
                       a: 60,
                       b: 25
                   }, {
-                      y: '2007',
+                      y: '10-14M',
                       a: 75,
                       b: 35
                   }, {
-                      y: '2008',
+                      y: '15-19F',
                       a: 90,
                       b: 20
                   }, {
-                      y: '2009',
+                      y: '15-19M',
                       a: 75,
                       b: 15
                   }, {
-                      y: '2010',
+                      y: '20-24F',
                       a: 50,
                       b: 10
                   }, {
-                      y: '2011',
+                      y: '20-24M',
                       a: 75,
                       b: 25
                   }, {
-                      y: '2012',
+                      y: '25-49F',
                       a: 30,
                       b: 10
                   }, {
-                      y: '2013',
+                      y: '25-49M',
                       a: 75,
                       b: 5
                   }, {
-                      y: '2014',
+                      y: '50+F',
                       a: 60,
                       b: 8
                   }];
@@ -436,12 +436,12 @@
             .done(function(data) {
                 console.log(data);
 
-                if (side == 'left') {
+                if (side === 'left') {
                     // populate left chart
-                    morrisStackedData = '';
-                } else if (side == 'right') {
+                    morrisStackedData = data;
+                } else if (side === 'right') {
                     // populate right chart
-                    morrisStackedData2 = '';
+                    morrisStackedData2 = data;
                 } else {
                     // remove this section if not necessary
                     console.log('Something fishy is going on!');
