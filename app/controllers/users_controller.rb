@@ -3,7 +3,22 @@ class UsersController < ApplicationController
   end
 
   def new
-    render layout: 'octopus'
+    if request.post?
+      payload = {
+          name: params['name'],
+          username: params['username'],
+          email: params['email'],
+          password: params['password'],
+          password_confirmation: params['password_confirmation']
+      }
+
+      url = '/users/create'
+
+      post_params(url,payload)
+
+    else
+      render layout: 'octopus'
+    end
   end
 
   def show

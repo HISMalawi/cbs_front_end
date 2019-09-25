@@ -4,30 +4,30 @@
   </header>
   <div class="panel-body">				
 			<div id="add" class="col-md-8 col-lg-12">
-				<form class="form-horizontal" method="get">
+				<form class="form-horizontal" method="post" id="create_user">
 					<fieldset>
 						<div class="form-group">
 							<label class="col-md-3 control-label" for="UserName">User Name</label>
 							<div class="col-md-8">
-								<input type="text" class="form-control" id="UserName"  name="user[user_name]"  onblur="uniqueUsername()" placeholder="User Name" required >
+								<input type="text" class="form-control" id="user_name"  name="" placeholder="User Name" required >
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-md-3 control-label" for="FirstName">First Name</label>
 							<div class="col-md-8">
-								<input type="text" class="form-control" id="FirstName" placeholder="First  Name" required>
+								<input type="text" class="form-control" id="first_name" placeholder="First Name" required>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-md-3 control-label" for="LastName">Last Name</label>
 							<div class="col-md-8">
-								<input type="text" class="form-control" id="LastName" placeholder="Last  Name" required>
+								<input type="text" class="form-control" id="last_name" placeholder="Last Name" required>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-md-3 control-label" for="Email">E-Mail</label>
 							<div class="col-md-8">
-								<input type="text" class="form-control" id="Email" placeholder="E-Mail" required>
+								<input type="text" class="form-control" id="email" placeholder="E-Mail" required>
 							</div>
 						</div>
 						<div class="form-group">
@@ -35,21 +35,20 @@
 							<div class="col-md-8">
 							   <select class="form-control" data-plugin-multiselect id="role_id">
 						             <option value="1" selected>System Administrator</option>
-						             <option value="2">Guest</option>
-						             <option value="3">Data Manager</option>
+						             <option value="2">Data Manager</option>
 						       </select>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-md-3 control-label" for="Password">Password</label>
 							<div class="col-md-8">
-								<input type="text" class="form-control" id="Password" placeholder="Password" required>
+								<input type="text" class="form-control" id="password" placeholder="Password" required>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-md-3 control-label" for="ConfirmPassword">Confirm Password</label>
 							<div class="col-md-8">
-								<input type="text" class="form-control" id="ConfirmPassword" placeholder="Confirm Password" required>
+								<input type="text" class="form-control" id="password_confirmation" placeholder="Confirm Password" required>
 							</div>
 						</div>	
 						<div class="col-md-12 col-md-offset-3">
@@ -62,4 +61,31 @@
   </div>
 </div>
 
-						
+<script>
+    // process the form
+    $('#create_user').submit(function(event) {
+
+        let formData = {
+            'name' : $('#first_name').val() + ' ' + $('#last_name').val(),
+            'username' : $('#user_name').val(),
+            'email' : $('#email').val(),
+            'password' : $('#password').val(),
+            'password_confirmation' : $('#password_confirmation').val() //pageInfo.length
+        };
+
+        $.ajax({
+            type        : 'POST',
+            url         : '/add_user',
+            headers : {
+                'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+            },
+            data        : formData,
+            dataType    : 'json',
+            encode       : true
+        })
+        // using the done promise callback
+            .done(function(data) {});
+
+        event.preventDefault();
+    });
+</script>
