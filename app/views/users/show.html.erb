@@ -1,10 +1,11 @@
 <%= stylesheet_link_tag 'octopus/datatables' %>
+
 <section class="panel">
   <header class="panel-heading">
     <h2 class="panel-title">System Users</h2>
   </header>
   <div class="panel-body">
-    <table class="table table-bordered table-striped" id="datatable-ajax" >
+    <table class="table table-bordered table-striped" id="show_users_table" >
       <thead>
       <tr>
         <th>User Name</th>
@@ -13,7 +14,6 @@
         <th>E-Mail</th>
         <th>Role</th>
          <th>Status</th>
-        <th>Actions</th>
       </tr>
       </thead>
       <tbody>
@@ -21,6 +21,34 @@
     </table>
   </div>
 </section>
+
+<%= javascript_include_tag 'octopus/jquery.dataTables' %>
 <%= javascript_include_tag 'octopus/datatables' %>
 
+<script>
+    console.log('hey');
+    $(document).ready( function () {
+        const $table = $('#show_users_table');
+
+        console.log('hey');
+        // query the form
+        $.ajax({
+            type        : 'POST',
+            url         : '/view_users',
+            headers : {
+                'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+            },
+            data        : '',
+            dataType    : 'json',
+            encode       : true
+        })
+        // using the done promise callback
+            .done(function(data) {
+                console.log('hello');
+                $table.DataTable({
+                    data: data
+                });
+            });
+    } );
+</script>
 

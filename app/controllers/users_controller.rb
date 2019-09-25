@@ -15,14 +15,38 @@ class UsersController < ApplicationController
       url = '/users/create'
 
       post_params(url,payload)
-
     else
       render layout: 'octopus'
     end
   end
 
   def show
-    render layout: 'octopus'
+    if request.post?
+      url = '/users'
+
+      response = post_params(url,'', 'get')
+
+      data = []
+
+      (JSON.parse(response) || []).each do |resp|
+        name = resp['name'].split(' ')
+        first_name = name[0]
+        last_name = name[1]
+
+        data << [
+            resp['username'],
+            first_name,
+            last_name,
+            "#{resp['username']}@mail.com",
+            'Default',
+            'Active'
+        ]
+      end
+
+      render json: data
+    else
+      render layout: 'octopus'
+    end
   end
 
   def sign_in

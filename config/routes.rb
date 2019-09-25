@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'dashboard#index'
   get 'users/index'
   match '/add_user', to: 'users#new', via: [:get, :post]
-  get '/view_users', to: 'users#show'
+  match '/view_users', to: 'users#show', via: [:get, :post]
   match '/art_initiation', to: 'art_initiation#index', via: [:get, :post]
   match '/case_listing', to: 'case_listing#index', via: [:get, :post]
   match '/eid_listing', to: 'eid_listing#index', via: [:get, :post]
