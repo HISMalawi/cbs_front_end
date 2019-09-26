@@ -491,19 +491,26 @@
             .done(function(data) {
                 console.log(data);
 
-                morrisStackedData2 = [{
-                    y: '<1',
-                    a: 10,
-                    b: 30
+                let expectedHash = [{
+                    '<1': 12
                 }, {
-                    y: '1-9',
-                    a: 100,
-                    b: 25
-                }, {
-                    y: '10-14F',
-                    a: 60,
-                    b: 25
+                    '<1-9': 23
                 }];
+                // morrisStackedData2 = [{
+                //     y: '<1',
+                //     a: 10,
+                //     b: 30
+                // }, {
+                //     y: '1-9',
+                //     a: 100,
+                //     b: 25
+                // }, {
+                //     y: '10-14F',
+                //     a: 60,
+                //     b: 25
+                // }];
+
+                morrisStackedData2 = expectedHash;
 
                 (function( $ ) {
 
