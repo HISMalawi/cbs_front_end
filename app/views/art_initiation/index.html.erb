@@ -399,13 +399,19 @@
   </div>
 </div>
 
+
 <!-- Specific Page Vendor -->
 <%= javascript_include_tag 'octopus/jquery.appear' %>
 <%= javascript_include_tag 'octopus/raphael' %>
 <%= javascript_include_tag 'octopus/morris' %>
-<%= javascript_include_tag 'octopus/examples.charts' %>
+<%#= javascript_include_tag 'octopus/examples.charts' %>
+
 
 <script>
+    $(document).ready( function () {
+
+    } );
+
     let $tableLeft = $('#art_init_table_left');
     let $tableRight = $('#art_init_table_right');
 
@@ -421,14 +427,15 @@
             'site_id_right': '7' //$('#site_id_right').val()
         };
 
-        ajaxARTinitiation(formData, 'left');
+        ajaxARTinitiationLeft(formData, 'left');
 
-        ajaxARTinitiation(formData, 'right');
+        ajaxARTinitiationRight(formData, 'right');
 
         event.preventDefault();
     });
 
-    function ajaxARTinitiation(formData, side){
+    function ajaxARTinitiationLeft(formData, side){
+
         $.ajax({
             type        : 'POST',
             url         : '/art_initiation',
@@ -443,17 +450,84 @@
             .done(function(data) {
                 console.log(data);
 
-                if (side === 'left') {
-                    // populate left chart
-                    morrisStackedData = data;
-                } else if (side === 'right') {
-                    // populate right chart
-                    morrisStackedData2 = data;
-                } else {
-                    // remove this section if not necessary
-                    console.log('Something fishy is going on!');
-                    alert('Something fishy is going on!');
-                }
+                (function( $ ) {
+
+                    'use strict';
+
+                    /*
+                    Morris: Stacked
+                    */
+                    Morris.Bar({
+                        resize: true,
+                        element: 'morrisStacked',
+                        data: morrisStackedData,
+                        xkey: 'y',
+                        ykeys: ['a', 'b'],
+                        labels: ['w/t Init', 'w/tout Init'],
+                        barColors: ['#0088cc', '#2baab1'],
+                        fillOpacity: 0.7,
+                        smooth: false,
+                        stacked: true,
+                        hideHover: true
+                    });
+
+                }).apply( this, [ jQuery ]);
+            });
+    }
+
+    function ajaxARTinitiationRight(formData, side){
+
+        $.ajax({
+            type        : 'POST',
+            url         : '/art_initiation',
+            headers : {
+                'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+            },
+            data        : formData,
+            dataType    : 'json',
+            encode       : true
+        })
+        // using the done promise callback
+            .done(function(data) {
+                console.log(data);
+
+                morrisStackedData2 = [{
+                    y: '<1',
+                    a: 10,
+                    b: 30
+                }, {
+                    y: '1-9',
+                    a: 100,
+                    b: 25
+                }, {
+                    y: '10-14F',
+                    a: 60,
+                    b: 25
+                }];
+
+                (function( $ ) {
+
+                    'use strict';
+
+                    /*
+                    Morris: Stacked2
+                    */
+                    Morris.Bar({
+                        resize: true,
+                        element: 'morrisStacked2',
+                        data: morrisStackedData2,
+                        xkey: 'y',
+                        ykeys: ['a', 'b'],
+                        labels: ['w/t Init', 'w/tout Init'],
+                        barColors: ['#0088cc', '#2baab1'],
+                        fillOpacity: 0.7,
+                        smooth: false,
+                        stacked: true,
+                        hideHover: true
+                    });
+
+                }).apply( this, [ jQuery ]);
+
             });
     }
 </script>
