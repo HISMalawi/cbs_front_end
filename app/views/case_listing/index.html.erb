@@ -96,6 +96,7 @@
         <th> HIV Test Facility</th>
         <th> ART Initiation Date</th>
         <th> ART Regimen</th>
+        <th> Current Facility</th>
         <th> Latest Viral Load Result</th>
         <th> Latest Viral Date</th>
         <th> Latest Viral Load Facility</th>
@@ -150,6 +151,10 @@
         <tr>
           <th> ART Regimen</th>
           <td id="art_regimen">&nbsp;</td>
+        </tr>
+        <tr>
+          <th> Current Facility</th>
+          <td id="current_facility">&nbsp;</td>
         </tr>
         <tr>
           <th> Latest Viral Load Result</th>
@@ -364,19 +369,20 @@
                 $('#hiv_test_facility').text(contentData[4]);
                 $('#art_init_date').text(contentData[5]);
                 $('#art_regimen').text(contentData[6]);
-                $('#latest_vl_result').text(contentData[7]);
-                $('#latest_viral_date').text(contentData[8]);
-                $('#latest_vl_facility').text(contentData[9]);
-                $('#art_ini_first_reg').text(contentData[10]);
-                $('#entry_into_care_date').text(contentData[11]);
-                $('#first_cd4_test_date').text(contentData[12]);
-                $('#first_prescribed_art_init_date').text(contentData[13]);
-                $('#first_vl_test_date').text(contentData[14]);
-                $('#follow_up_vl_test_date').text(contentData[15]);
-                $('#suppressed_vl_result').text(contentData[16]);
-                $('#death_date').text(contentData[17]);
-                $('#cause_of_death').text(contentData[18]);
-                $('#staging_info').text(contentData[19]);
+                $('#current_facility').text(contentData[7]);
+                $('#latest_vl_result').text(contentData[8]);
+                $('#latest_viral_date').text(contentData[9]);
+                $('#latest_vl_facility').text(contentData[10]);
+                $('#art_ini_first_reg').text(contentData[11]);
+                $('#entry_into_care_date').text(contentData[12]);
+                $('#first_cd4_test_date').text(contentData[13]);
+                $('#first_prescribed_art_init_date').text(contentData[14]);
+                $('#first_vl_test_date').text(contentData[15]);
+                $('#follow_up_vl_test_date').text(contentData[16]);
+                $('#suppressed_vl_result').text(contentData[17]);
+                $('#death_date').text(contentData[18]);
+                $('#cause_of_death').text(contentData[19]);
+                $('#staging_info').text(contentData[20]);
             });
 
     });
