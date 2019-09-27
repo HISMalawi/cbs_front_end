@@ -51,8 +51,6 @@
               <div class="col-md-6">
                 <select class="form-control" data-plugin-multiselect id="district_id_left">
                   <option value="1" selected>Lilongwe</option>
-                  <option value="2">Balaka</option>
-                  <option value="3">Mzuzu</option>
                 </select>
               </div>
             </div>
@@ -60,9 +58,14 @@
               <label class="col-md-3 control-label">Site</label>
               <div class="col-md-6">
                 <select class="form-control" data-plugin-multiselect id="site_id_left">
-                  <option value="1" selected>MPC</option>
-                  <option value="2">Lighthouse</option>
-                  <option value="3">Kawale</option>
+                  <option value="336" selected>Area 25 UHC</option>
+                  <option value="335">Area 18 UHC</option>
+                  <option value="342">Chitedze Health Centre</option>
+                  <option value="331">KCH</option>
+                  <option value="349">Kawale Health Centre</option>
+                  <option value="375">Likuni Hospital</option>
+                  <option value="333">Mitundu Rural Hospital</option>
+                  <option value="377">St. Gabriel Hospital</option>
                 </select>
               </div>
             </div>
@@ -230,8 +233,6 @@
               <div class="col-md-6">
                 <select class="form-control" data-plugin-multiselect id="district_id_right">
                   <option value="1" selected>Lilongwe</option>
-                  <option value="2">Balaka</option>
-                  <option value="3">Mzuzu</option>
                 </select>
               </div>
             </div>
@@ -239,9 +240,14 @@
               <label class="col-md-3 control-label">Site</label>
               <div class="col-md-6">
                 <select class="form-control" data-plugin-multiselect id="site_id_right">
-                  <option value="1" selected>MPC</option>
-                  <option value="2">Lighthouse</option>
-                  <option value="3">Kawale</option>
+                  <option value="336" selected>Area 25 UHC</option>
+                  <option value="335">Area 18 UHC</option>
+                  <option value="342">Chitedze Health Centre</option>
+                  <option value="331">KCH</option>
+                  <option value="349">Kawale Health Centre</option>
+                  <option value="375">Likuni Hospital</option>
+                  <option value="333">Mitundu Rural Hospital</option>
+                  <option value="377">St. Gabriel Hospital</option>
                 </select>
               </div>
             </div>
@@ -373,23 +379,31 @@
     // process the form
     $('#filter-form-date').submit(function(event) {
 
+        // let formData = {
+        //     'start_date' : $('#start_date').val(),
+        //     'end_date' : $('#end_date').val(),
+        //     'district_id_left': $('#district_id_left').val(),
+        //     'district_id_right': $('#district_id_right').val(),
+        //     'site_id_left': $('#district_id_left').val(), // '333', //$('#site_id_left').val(),
+        //     'site_id_right': $('#district_id_right').val() // '333' //$('#site_id_right').val()
+        // };
+
+        ajaxARTinitiationLeft('left');
+
+        ajaxARTinitiationRight('right');
+
+        event.preventDefault();
+    });
+
+    function ajaxARTinitiationLeft(side){
+
         let formData = {
             'start_date' : $('#start_date').val(),
             'end_date' : $('#end_date').val(),
             'district_id_left': $('#district_id_left').val(),
             'district_id_right': $('#district_id_right').val(),
-            'site_id_left': '333', //$('#site_id_left').val(),
-            'site_id_right': '333' //$('#site_id_right').val()
+            'site_id': $('#site_id_left').val(), // '333', //$('#site_id_left').val(),
         };
-
-        ajaxARTinitiationLeft(formData, 'left');
-
-        ajaxARTinitiationRight(formData, 'right');
-
-        event.preventDefault();
-    });
-
-    function ajaxARTinitiationLeft(formData, side){
 
         $.ajax({
             type        : 'POST',
@@ -433,7 +447,15 @@
             });
     }
 
-    function ajaxARTinitiationRight(formData, side){
+    function ajaxARTinitiationRight(side){
+
+        let formData = {
+            'start_date' : $('#start_date').val(),
+            'end_date' : $('#end_date').val(),
+            'district_id_left': $('#district_id_left').val(),
+            'district_id_right': $('#district_id_right').val(),
+            'site_id': $('#site_id_right').val() // '333' //$('#site_id_right').val()
+        };
 
         $.ajax({
             type        : 'POST',

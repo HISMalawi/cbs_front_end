@@ -8,7 +8,7 @@ class ArtInitiationController < ApplicationController
           start_date: start_date.to_date,
           end_date: end_date.to_date,
           district_id: params[:district_id_left] || params[:district_id_right],
-          site_id: params[:site_id_left] || params[:site_id_right]
+          site_id: params[:site_id]
       }
 
       url = '/reports/art_initiated'
