@@ -266,52 +266,7 @@
               <!-- Morris: Area -->
               <div class="chart chart-md" id="morrisStacked2"></div>
               <script type="text/javascript">
-
-                  let morrisStackedData2 = [{
-                      y: '<1',
-                      a: 10,
-                      b: 30
-                  }, {
-                      y: '1-9',
-                      a: 100,
-                      b: 25
-                  }, {
-                      y: '10-14F',
-                      a: 60,
-                      b: 25
-                  }, {
-                      y: '10-14M',
-                      a: 75,
-                      b: 35
-                  }, {
-                      y: '15-19F',
-                      a: 90,
-                      b: 20
-                  }, {
-                      y: '15-19M',
-                      a: 75,
-                      b: 15
-                  }, {
-                      y: '20-24F',
-                      a: 50,
-                      b: 10
-                  }, {
-                      y: '20-24M',
-                      a: 75,
-                      b: 25
-                  }, {
-                      y: '25-49F',
-                      a: 30,
-                      b: 10
-                  }, {
-                      y: '25-49M',
-                      a: 75,
-                      b: 5
-                  }, {
-                      y: '50+F',
-                      a: 60,
-                      b: 8
-                  }];
+                  let morrisStackedData2;
               </script>
 
             </div>
@@ -423,8 +378,8 @@
             'end_date' : $('#end_date').val(),
             'district_id_left': $('#district_id_left').val(),
             'district_id_right': $('#district_id_right').val(),
-            'site_id_left': '7', //$('#site_id_left').val(),
-            'site_id_right': '7' //$('#site_id_right').val()
+            'site_id_left': '333', //$('#site_id_left').val(),
+            'site_id_right': '333' //$('#site_id_right').val()
         };
 
         ajaxARTinitiationLeft(formData, 'left');
@@ -450,19 +405,21 @@
             .done(function(data) {
                 console.log(data);
 
+                morrisStackedData = data;
+
                 (function( $ ) {
 
                     'use strict';
 
                     /*
-                    Morris: Stacked
+                    Morris: Stacked2
                     */
                     Morris.Bar({
                         resize: true,
                         element: 'morrisStacked',
                         data: morrisStackedData,
-                        xkey: 'y',
-                        ykeys: ['a', 'b'],
+                        xkey: 'age_range',
+                        ykeys: ['w_init', 'wtout_init'],
                         labels: ['w/t Init', 'w/tout Init'],
                         barColors: ['#0088cc', '#2baab1'],
                         fillOpacity: 0.7,
@@ -472,6 +429,7 @@
                     });
 
                 }).apply( this, [ jQuery ]);
+
             });
     }
 
@@ -491,19 +449,7 @@
             .done(function(data) {
                 console.log(data);
 
-                morrisStackedData2 = [{
-                    y: '<1',
-                    a: 10,
-                    b: 30
-                }, {
-                    y: '1-9',
-                    a: 100,
-                    b: 25
-                }, {
-                    y: '10-14F',
-                    a: 60,
-                    b: 25
-                }];
+                morrisStackedData2 = data;
 
                 (function( $ ) {
 
@@ -516,8 +462,8 @@
                         resize: true,
                         element: 'morrisStacked2',
                         data: morrisStackedData2,
-                        xkey: 'y',
-                        ykeys: ['a', 'b'],
+                        xkey: 'age_range',
+                        ykeys: ['w_init', 'wtout_init'],
                         labels: ['w/t Init', 'w/tout Init'],
                         barColors: ['#0088cc', '#2baab1'],
                         fillOpacity: 0.7,
